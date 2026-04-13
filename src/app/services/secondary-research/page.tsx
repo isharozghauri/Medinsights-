@@ -1,0 +1,188 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight, ArrowUpRight, CheckCircle2, BarChart3, FileText, Search, Briefcase, Database, LineChart, Shield, Globe2, TrendingUp } from 'lucide-react';
+import AnimatedSection from '@/components/AnimatedSection';
+
+export const metadata: Metadata = {
+  title: 'Secondary Research',
+  description: 'Medinsights+ secondary research: competitive intelligence, market sizing, regulatory analysis, pricing research, and evidence-based healthcare market analysis.',
+};
+
+const serviceAreas = [
+  {
+    icon: TrendingUp,
+    title: 'Competitive Intelligence & Pipeline Tracking',
+    description: 'Comprehensive monitoring and analysis of competitor pipelines, clinical development programs, regulatory milestones, and commercial strategies. We deliver structured competitive landscapes that map the current and future competitive environment across therapeutic areas, including SWOT analysis, competitive benchmarking, and strategic implications for your portfolio.',
+    capabilities: ['Pipeline tracking across all development phases', 'Competitive SWOT and benchmarking analysis', 'Patent and exclusivity landscape reviews', 'Conference coverage and competitor monitoring', 'Quarterly competitive update reports'],
+  },
+  {
+    icon: LineChart,
+    title: 'Market Sizing & Forecasting',
+    description: 'Epidemiology-based market models that quantify addressable patient populations, treatment rates, market penetration, and revenue potential across geographies. Our forecasting methodology integrates clinical, commercial, and market access variables to deliver scenario-based projections that inform pipeline valuation and commercial planning.',
+    capabilities: ['Epidemiology-based patient flow modeling', 'Revenue forecasting with scenario analysis', 'Market share estimation and projection', 'Addressable market quantification', 'Sensitivity analysis and assumption testing'],
+  },
+  {
+    icon: Shield,
+    title: 'Regulatory Intelligence',
+    description: 'Systematic analysis of regulatory filings, approval pathways, clinical trial data, and labeling across FDA, EMA, PMDA, and other global regulatory agencies. We monitor regulatory actions, advisory committee outcomes, and evolving requirements to identify risks and opportunities for your development and commercial programs.',
+    capabilities: ['FDA/EMA filing and approval analysis', 'Clinical trial database monitoring (ClinicalTrials.gov)', 'Advisory committee briefing documents review', 'Regulatory pathway assessment and comparison', 'Labeling and indication analysis'],
+  },
+  {
+    icon: Database,
+    title: 'Pricing & Market Access Analysis',
+    description: 'Data-driven pricing intelligence covering ex-manufacturer pricing, international reference pricing, gross-to-net dynamics, HTA outcomes, and formulary positioning. We analyze reimbursement landscapes across public and private payers to support market access strategy and pricing optimization.',
+    capabilities: ['International reference pricing analysis', 'HTA decision tracking (NICE, G-BA, HAS, PBAC)', 'Formulary status monitoring across markets', 'Gross-to-net and contracting analysis', 'Value dossier and AMCP format support'],
+  },
+];
+
+const dataSources = [
+  'PubMed & MEDLINE', 'ClinicalTrials.gov & EU CTR', 'FDA Orange Book & Purple Book', 'EMA Public Assessment Reports',
+  'SEC/EDGAR Filings', 'USPTO & EPO Patent Databases', 'IQVIA & Evaluate Pharma', 'GlobalData & Datamonitor',
+  'Conference Proceedings (ASCO, ESMO, AAN, ACR, etc.)', 'WHO & CDC Epidemiology Data', 'National Formulary Databases',
+  'Health Technology Assessment Bodies', 'Published Literature & Systematic Reviews', 'Company Annual Reports & Press Releases',
+];
+
+const deliverables = [
+  'Comprehensive market landscape reports', 'Competitive intelligence dashboards', 'Market sizing and forecast models (Excel)',
+  'Regulatory pathway comparison matrices', 'Pricing and market access scorecards', 'Pipeline tracker databases',
+  'Executive briefing presentations', 'Periodic update reports (quarterly/annual)',
+];
+
+export default function SecondaryResearchPage() {
+  return (
+    <>
+      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
+        <div className="absolute bottom-8 left-12 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
+          {Array.from({ length: 36 }).map((_, i) => (<div key={i} className="w-1.5 h-1.5 rounded-full bg-accent" />))}
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <Link href="/services" className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 hover:text-accent-light transition-colors">
+              <ArrowRight className="w-4 h-4 rotate-180" /> All Services
+            </Link>
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Secondary & Desk <span className="text-accent">Research</span></h1>
+            <p className="mt-6 text-xl text-white/70 leading-relaxed">
+              Transform published data into strategic intelligence. We systematically analyze clinical, regulatory, commercial, and epidemiological data sources to build comprehensive market landscapes and competitive intelligence frameworks that inform critical healthcare business decisions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="max-w-4xl">
+              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Overview</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900">Evidence-Based Intelligence for Strategic Decisions</h2>
+              <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-lg">
+                <p>The healthcare industry generates vast quantities of publicly available data — clinical trial results, regulatory filings, epidemiological studies, pricing databases, patent records, and conference presentations. The challenge is not access to data, but the ability to synthesize it into coherent, actionable intelligence that answers your specific strategic questions.</p>
+                <p>Medinsights+ secondary research practice brings together experienced healthcare analysts with structured analytical frameworks to convert raw data into strategic insight. Every project is designed around your decision context — whether you need to size a market opportunity, map a competitive landscape, assess a regulatory pathway, or benchmark pricing across markets.</p>
+                <p>Our analysts hold advanced degrees in life sciences, health economics, and public health, bringing the clinical and commercial literacy needed to interpret complex healthcare data accurately and extract meaningful strategic implications.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {serviceAreas.map((area, idx) => (
+        <section key={idx} className={`py-24 lg:py-32 ${idx % 2 === 0 ? 'bg-slate-50' : ''}`}>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-7">
+                <AnimatedSection>
+                  <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center">
+                    <area.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h2 className="mt-5 text-2xl font-bold text-slate-900">{area.title}</h2>
+                  <p className="mt-4 text-slate-600 leading-relaxed text-lg">{area.description}</p>
+                </AnimatedSection>
+              </div>
+              <div className="lg:col-span-5">
+                <AnimatedSection delay={150}>
+                  <div className="bg-white rounded-2xl p-8 border border-slate-200">
+                    <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">Key Capabilities</h3>
+                    <div className="space-y-3">
+                      {area.capabilities.map((cap, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                          <span className="text-slate-700">{cap}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
+        <div className="absolute -top-16 -left-16 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Data Sources</p>
+            <h2 className="mt-3 text-3xl font-bold">Comprehensive Data Coverage</h2>
+            <p className="mt-4 text-white/70 text-lg max-w-3xl">We leverage a wide range of proprietary and public data sources to ensure completeness and accuracy in every analysis.</p>
+          </AnimatedSection>
+          <AnimatedSection delay={200}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {dataSources.map((source) => (
+                <span key={source} className="px-4 py-2 bg-white/10 rounded-full text-sm text-white/80 border border-white/10">{source}</span>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Deliverables</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900">What You Receive</h2>
+          </AnimatedSection>
+          <AnimatedSection delay={150}>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+              {deliverables.map((item, i) => (
+                <div key={i} className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" /><span className="text-slate-700">{item}</span></div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AnimatedSection><p className="text-accent font-semibold text-sm uppercase tracking-wider">Related Services</p><h2 className="mt-3 text-3xl font-bold text-slate-900">Explore More Capabilities</h2></AnimatedSection>
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: Search, title: 'Primary Research', href: '/services/primary-research', desc: 'First-hand intelligence from KOLs, physicians, patients, and payers.' },
+              { icon: FileText, title: 'Syndicated Reports', href: '/services/syndicated-reports', desc: 'Multi-client reports covering therapeutic landscapes and market trackers.' },
+              { icon: Briefcase, title: 'Strategic Consulting', href: '/services/consulting', desc: 'Advisory for market entry, competitive positioning, and launch excellence.' },
+            ].map((svc, i) => (
+              <AnimatedSection key={i} delay={i * 100}>
+                <Link href={svc.href} className="group card-premium p-8 block h-full">
+                  <svc.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
+                  <h3 className="mt-4 text-lg font-bold text-slate-900">{svc.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{svc.desc}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent transition-colors">Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></span>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <AnimatedSection>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Need a Custom Secondary Research Project?</h2>
+            <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">From competitive landscapes to market forecasts, our team delivers evidence-based intelligence tailored to your strategic questions.</p>
+            <div className="mt-10"><Link href="/contact" className="btn-primary px-8 py-4">Request a Proposal <ArrowUpRight className="w-5 h-5" /></Link></div>
+          </AnimatedSection>
+        </div>
+      </section>
+    </>
+  );
+}
