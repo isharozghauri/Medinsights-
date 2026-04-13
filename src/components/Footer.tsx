@@ -8,6 +8,8 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const footerLinks = {
   services: [
     { name: 'Primary Research', href: '/services#primary-research' },
@@ -62,7 +64,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/">
               <Image
-                src="/logo-white.svg"
+                src={`${basePath}/logo-white.svg`}
                 alt="Medinsights+"
                 width={180}
                 height={36}

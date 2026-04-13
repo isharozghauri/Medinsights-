@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
@@ -57,7 +59,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src={scrolled ? '/logo.svg' : '/logo-white.svg'}
+              src={scrolled ? `${basePath}/logo.svg` : `${basePath}/logo-white.svg`}
               alt="Medinsights+"
               width={200}
               height={40}
