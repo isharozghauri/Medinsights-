@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, CheckCircle2, FileText, Search, BarChart3, Briefcase, BookOpen, Layers, TrendingUp, Calendar, Globe2 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Syndicated Reports',
@@ -36,8 +38,11 @@ const subscriptionModels = [
 export default function SyndicatedReportsPage() {
   return (
     <>
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
+      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.chartsDashboard} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+        </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <Link href="/services" className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 hover:text-accent-light transition-colors"><ArrowRight className="w-4 h-4 rotate-180" /> All Services</Link>

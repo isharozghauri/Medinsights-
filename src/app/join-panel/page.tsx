@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Stethoscope, Heart, Users, ArrowRight, ArrowLeft, CheckCircle2, Shield, DollarSign, Clock, Globe2, Upload, ChevronRight } from 'lucide-react';
+import { images } from '@/lib/images';
 import AnimatedSection from '@/components/AnimatedSection';
 
 type PanelType = 'hcp' | 'patient' | 'caregiver' | '';
@@ -101,8 +103,11 @@ export default function JoinPanelPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
+      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.heroPanel} alt="" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+        </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-accent font-semibold text-sm uppercase tracking-wider">Join Our Panel</p>

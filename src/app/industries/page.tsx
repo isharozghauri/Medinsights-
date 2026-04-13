@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import { images } from '@/lib/images';
 import {
   Pill,
   Microscope,
@@ -144,8 +146,11 @@ export default function IndustriesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -right-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
+      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.heroIndustries} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+        </div>
         <div className="absolute bottom-8 left-12 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
           {Array.from({ length: 36 }).map((_, i) => (
             <div key={i} className="w-1.5 h-1.5 rounded-full bg-accent" />
