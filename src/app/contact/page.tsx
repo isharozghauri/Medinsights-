@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import {
   Mail,
   Phone,
@@ -11,6 +12,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 const offices = [
   {
@@ -20,6 +22,7 @@ const offices = [
     phone: '+1 (212) 555-0123',
     email: 'newyork@medinsightsplus.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM EST',
+    image: images.officeModern,
   },
   {
     city: 'London',
@@ -28,6 +31,7 @@ const offices = [
     phone: '+44 (0)20 7946 0123',
     email: 'london@medinsightsplus.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM GMT',
+    image: images.teamMeeting,
   },
   {
     city: 'Frankfurt',
@@ -36,6 +40,7 @@ const offices = [
     phone: '+49 (0)69 1234 5678',
     email: 'frankfurt@medinsightsplus.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM CET',
+    image: images.globalMap,
   },
 ];
 
@@ -60,11 +65,9 @@ export default function ContactPage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
-        <div className="absolute top-16 right-16 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
-          {Array.from({ length: 36 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-          ))}
+        <div className="absolute inset-0">
+          <Image src={images.heroContact} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -226,6 +229,22 @@ export default function ContactPage() {
             <div className="lg:col-span-5">
               <AnimatedSection delay={200}>
                 <div className="space-y-8">
+                  {/* Sidebar Image */}
+                  <div className="relative h-56 rounded-2xl overflow-hidden">
+                    <Image
+                      src={images.teamMeeting}
+                      alt="Our team"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-white font-semibold text-sm">
+                        Our global team is ready to support your research needs
+                      </p>
+                    </div>
+                  </div>
+
                   {/* Quick Contact */}
                   <div className="bg-primary rounded-2xl p-8 text-white relative overflow-hidden">
                     <div className="absolute -top-10 -right-10 w-32 h-32 border-[20px] border-accent rounded-full opacity-20" />
@@ -280,21 +299,34 @@ export default function ContactPage() {
                       {offices.map((office) => (
                         <div
                           key={office.city}
-                          className="bg-white rounded-xl p-6 border border-slate-200 hover:shadow-md transition-shadow"
+                          className="bg-white rounded-xl overflow-hidden border border-slate-200 hover:shadow-md transition-shadow"
                         >
-                          <div className="flex items-start gap-3">
-                            <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                            <div>
-                              <h4 className="font-semibold text-slate-900">
+                          <div className="relative h-32">
+                            <Image
+                              src={office.image}
+                              alt={`${office.city} office`}
+                              fill
+                              className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                            <div className="absolute bottom-3 left-4">
+                              <h4 className="font-semibold text-white">
                                 {office.city}, {office.country}
                               </h4>
-                              <p className="text-sm text-slate-500 mt-1">{office.address}</p>
-                              <p className="text-sm text-slate-500 mt-1">{office.phone}</p>
-                              <p className="text-sm text-accent mt-1">{office.email}</p>
-                              <p className="text-xs text-slate-400 mt-2 flex items-center gap-1">
-                                <Clock className="w-3 h-3" />
-                                {office.hours}
-                              </p>
+                            </div>
+                          </div>
+                          <div className="p-5">
+                            <div className="flex items-start gap-3">
+                              <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm text-slate-500">{office.address}</p>
+                                <p className="text-sm text-slate-500 mt-1">{office.phone}</p>
+                                <p className="text-sm text-accent mt-1">{office.email}</p>
+                                <p className="text-xs text-slate-400 mt-2 flex items-center gap-1">
+                                  <Clock className="w-3 h-3" />
+                                  {office.hours}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>

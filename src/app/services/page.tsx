@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Search,
   BarChart3,
@@ -16,6 +17,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -38,6 +40,7 @@ const services = [
       'Multi-country fieldwork coordination',
     ],
     color: 'from-primary to-primary/80',
+    image: images.doctor,
   },
   {
     icon: BarChart3,
@@ -53,6 +56,7 @@ const services = [
       'Patent and exclusivity landscape reviews',
     ],
     color: 'from-accent to-accent/80',
+    image: images.dataAnalytics,
   },
   {
     icon: FileText,
@@ -68,6 +72,7 @@ const services = [
       'Flexible subscription and licensing models',
     ],
     color: 'from-primary to-accent',
+    image: images.chartsDashboard,
   },
   {
     icon: Briefcase,
@@ -83,6 +88,7 @@ const services = [
       'Embedded team and retainer models',
     ],
     color: 'from-accent to-primary',
+    image: images.consulting,
   },
 ];
 
@@ -117,17 +123,10 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
-        <div className="absolute -bottom-10 -right-10 w-[250px] h-[250px]">
-          <div className="absolute inset-0 border-2 border-white/5 rounded-full" />
-          <div className="absolute inset-4 border-2 border-white/5 rounded-full" />
-          <div className="absolute inset-8 border-2 border-white/5 rounded-full" />
-        </div>
-        <div className="absolute top-16 right-16 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
-          {Array.from({ length: 36 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-          ))}
+      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.heroServices} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -171,13 +170,19 @@ export default function ServicesPage() {
                   className="group block bg-white rounded-2xl border border-slate-200 hover:border-accent/30 hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                    {/* Icon/Accent Bar */}
-                    <div className={`lg:col-span-1 bg-gradient-to-b ${service.color} flex items-center justify-center p-6 lg:p-0`}>
-                      <service.icon className="w-8 h-8 text-white" />
+                    {/* Image section */}
+                    <div className={`relative h-56 lg:h-auto lg:col-span-4 overflow-hidden ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <Image src={service.image} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent lg:bg-gradient-to-r" />
+                      <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+                        <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                          <service.icon className="w-6 h-6 text-white" />
+                        </div>
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="lg:col-span-11 p-8 lg:p-10">
+                    <div className={`lg:col-span-8 p-8 lg:p-10 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <h3 className="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
@@ -213,8 +218,12 @@ export default function ServicesPage() {
       </section>
 
       {/* How Services Work Together */}
-      <section className="py-24 lg:py-32 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.labResearch} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-slate-50/95" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-accent font-semibold text-sm uppercase tracking-wider">Integrated Approach</p>
@@ -284,8 +293,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute -bottom-16 -left-16 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
+      <section className="relative py-24 lg:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.officeModern} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-primary/95" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>

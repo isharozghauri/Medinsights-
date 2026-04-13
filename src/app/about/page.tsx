@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Target,
   Eye,
@@ -9,8 +10,11 @@ import {
   Globe2,
   TrendingUp,
   ArrowUpRight,
+  Award,
+  CheckCircle2,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -82,11 +86,16 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
-        <div className="absolute bottom-8 right-12 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
-          {Array.from({ length: 36 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-          ))}
+        {/* Background image with gradient overlay */}
+        <div className="absolute inset-0">
+          <Image
+            src={images.heroAbout}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -137,29 +146,61 @@ export default function AboutPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={200}>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-primary rounded-2xl p-8 text-white">
-                  <Globe2 className="w-10 h-10 text-accent mb-4" />
-                  <div className="text-3xl font-bold">30+</div>
-                  <div className="text-sm text-white/60 mt-1">Countries Covered</div>
-                </div>
-                <div className="bg-slate-50 rounded-2xl p-8">
-                  <Users className="w-10 h-10 text-primary mb-4" />
-                  <div className="text-3xl font-bold text-primary">200+</div>
-                  <div className="text-sm text-slate-500 mt-1">Clients Served</div>
-                </div>
-                <div className="bg-slate-50 rounded-2xl p-8">
-                  <TrendingUp className="w-10 h-10 text-primary mb-4" />
-                  <div className="text-3xl font-bold text-primary">500+</div>
-                  <div className="text-sm text-slate-500 mt-1">Projects Delivered</div>
-                </div>
-                <div className="bg-accent rounded-2xl p-8 text-white">
-                  <Target className="w-10 h-10 text-white mb-4" />
-                  <div className="text-3xl font-bold">98%</div>
-                  <div className="text-sm text-white/70 mt-1">Client Retention</div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={images.teamMeeting}
+                  alt="Medinsights+ team collaboration"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+                {/* Floating stats overlay */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-primary/90 to-transparent p-6 pt-16">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-white">200+</div>
+                      <div className="text-xs text-white/70">Clients Served</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-accent">500+</div>
+                      <div className="text-xs text-white/70">Projects Delivered</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-primary relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src={images.officeModern}
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: '30+', label: 'Countries Covered', icon: Globe2 },
+              { value: '200+', label: 'Clients Served', icon: Users },
+              { value: '500+', label: 'Projects Delivered', icon: TrendingUp },
+              { value: '98%', label: 'Client Retention', icon: Target },
+            ].map((stat, index) => (
+              <AnimatedSection key={index} delay={index * 100}>
+                <div className="text-center group">
+                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/30 transition-colors">
+                    <stat.icon className="w-6 h-6 text-accent" />
+                  </div>
+                  <div className="text-3xl sm:text-4xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-white/60 mt-1">{stat.label}</div>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
@@ -213,7 +254,7 @@ export default function AboutPage() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <AnimatedSection key={index} delay={index * 100}>
-                <div className="text-center p-8">
+                <div className="text-center p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center mx-auto">
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
@@ -226,8 +267,67 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Quality / Research Excellence Section */}
       <section className="py-24 lg:py-32 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={images.dataAnalytics}
+                  alt="Data analytics and research excellence"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                      <Award className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm">ISO 27001 Certified</p>
+                      <p className="text-white/70 text-xs">GDPR & HIPAA Compliant</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={200}>
+              <div>
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Quality Commitment</p>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
+                  Research Excellence at Every Step
+                </h2>
+                <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
+                  <p>
+                    Every Medinsights+ project follows our proprietary quality framework,
+                    ensuring rigorous methodology, data accuracy, and actionable deliverables.
+                  </p>
+                </div>
+                <div className="mt-8 space-y-4">
+                  {[
+                    'Proprietary research quality framework',
+                    'Multi-stage data validation process',
+                    'Expert peer review on all deliverables',
+                    'Enterprise-grade data security',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center max-w-2xl mx-auto">
@@ -238,19 +338,21 @@ export default function AboutPage() {
             </div>
           </AnimatedSection>
 
-          <div className="mt-16 max-w-3xl mx-auto">
+          <div className="mt-16 max-w-4xl mx-auto relative">
+            {/* Central connecting line */}
+            <div className="absolute left-[7.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-primary to-accent/30 hidden sm:block" />
+
             {milestones.map((milestone, index) => (
               <AnimatedSection key={index} delay={index * 100}>
-                <div className="flex gap-6 mb-8">
-                  <div className="shrink-0 w-20 text-right">
+                <div className="flex gap-6 mb-10 relative group">
+                  <div className="shrink-0 w-24 text-right pt-3">
                     <span className="text-lg font-bold text-primary">{milestone.year}</span>
                   </div>
-                  <div className="relative">
-                    <div className="absolute top-2 -left-[25px] w-3 h-3 rounded-full bg-accent border-2 border-white" />
-                    {index < milestones.length - 1 && (
-                      <div className="absolute top-5 -left-[20px] w-0.5 h-full bg-slate-200" />
-                    )}
-                    <p className="text-slate-700 leading-relaxed pb-8">{milestone.event}</p>
+                  <div className="relative shrink-0 hidden sm:flex items-start pt-2">
+                    <div className="w-4 h-4 rounded-full bg-accent border-[3px] border-white shadow-md z-10 group-hover:scale-125 transition-transform" />
+                  </div>
+                  <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex-1 group-hover:shadow-md group-hover:border-accent/30 transition-all">
+                    <p className="text-slate-700 leading-relaxed">{milestone.event}</p>
                   </div>
                 </div>
               </AnimatedSection>
@@ -260,8 +362,19 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 lg:py-32 relative overflow-hidden">
+        {/* Subtle background image */}
+        <div className="absolute inset-0">
+          <Image
+            src={images.consulting}
+            alt=""
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-white/95" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-accent font-semibold text-sm uppercase tracking-wider">Leadership</p>
@@ -279,7 +392,7 @@ export default function AboutPage() {
             {leadership.map((person, index) => (
               <AnimatedSection key={index} delay={index * 100}>
                 <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mx-auto flex items-center justify-center">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mx-auto flex items-center justify-center shadow-lg">
                     <span className="text-2xl font-bold text-white">
                       {person.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                     </span>
@@ -294,14 +407,71 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Global Presence Section */}
+      <section className="py-24 lg:py-32 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <div>
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Global Reach</p>
+                <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-slate-900">
+                  Research Coverage Across 30+ Countries
+                </h2>
+                <p className="mt-6 text-slate-600 leading-relaxed">
+                  With offices in New York, London, and Frankfurt, Medinsights+ provides on-the-ground
+                  expertise across North America and Europe. Our global KOL network of 10,000+
+                  healthcare professionals ensures rapid access to critical insights in any market.
+                </p>
+                <div className="mt-8 grid grid-cols-3 gap-6">
+                  <div>
+                    <div className="text-2xl font-bold text-primary">3</div>
+                    <div className="text-sm text-slate-500">Global Offices</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-primary">10K+</div>
+                    <div className="text-sm text-slate-500">KOL Network</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-primary">50+</div>
+                    <div className="text-sm text-slate-500">Therapeutic Areas</div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={200}>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src={images.globalMap}
+                  alt="Global research coverage map"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center gap-2 text-white text-sm font-medium">
+                    <Globe2 className="w-4 h-4 text-accent" />
+                    North America & Europe Coverage
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute -top-16 -right-16 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
-        <div className="absolute bottom-8 left-8 grid grid-cols-5 gap-2 opacity-15 hidden lg:grid">
-          {Array.from({ length: 25 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-          ))}
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src={images.labResearch}
+            alt=""
+            fill
+            className="object-cover"
+          />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/90" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Clock, Tag, ArrowUpRight } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Insights',
@@ -26,6 +28,7 @@ const insights = [
       'Drawing from our extensive rare disease research portfolio, we share key learnings on recruiting, engaging, and extracting meaningful insights from rare disease KOLs.',
     readTime: '8 min read',
     date: 'February 2024',
+    image: images.insight1,
   },
   {
     category: 'Market Access',
@@ -34,6 +37,7 @@ const insights = [
       'The EU Health Technology Assessment regulation brings significant changes to how medicines and devices are evaluated. We break down the implications for market access strategy.',
     readTime: '10 min read',
     date: 'January 2024',
+    image: images.insight2,
   },
   {
     category: 'Industry Trends',
@@ -42,6 +46,7 @@ const insights = [
       'How we integrate AI-powered analytics with traditional research methodologies to deliver faster, deeper, and more nuanced healthcare market intelligence.',
     readTime: '6 min read',
     date: 'December 2023',
+    image: images.insight3,
   },
   {
     category: 'Competitive Intelligence',
@@ -50,6 +55,7 @@ const insights = [
       'An analysis of biosimilar competition across key European markets, examining adoption patterns, pricing erosion curves, and the impact on originator strategies.',
     readTime: '9 min read',
     date: 'November 2023',
+    image: images.insight4,
   },
   {
     category: 'Patient Research',
@@ -58,6 +64,7 @@ const insights = [
       'Insights from our multi-country patient research program exploring treatment satisfaction, quality of life impacts, and expectations for next-generation therapies.',
     readTime: '7 min read',
     date: 'October 2023',
+    image: images.insight5,
   },
   {
     category: 'MedTech',
@@ -66,6 +73,7 @@ const insights = [
       'Three years after the pandemic-driven digital health acceleration, we examine which technologies achieved lasting adoption and which face renewed headwinds.',
     readTime: '8 min read',
     date: 'September 2023',
+    image: images.insight6,
   },
 ];
 
@@ -85,11 +93,9 @@ export default function InsightsPage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
-        <div className="absolute -bottom-10 -right-10 w-[250px] h-[250px]">
-          <div className="absolute inset-0 border-2 border-white/5 rounded-full" />
-          <div className="absolute inset-4 border-2 border-white/5 rounded-full" />
-          <div className="absolute inset-8 border-2 border-white/5 rounded-full" />
+        <div className="absolute inset-0">
+          <Image src={images.heroInsights} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -131,37 +137,37 @@ export default function InsightsPage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="bg-gradient-to-br from-primary via-primary to-navy rounded-2xl p-10 lg:p-16 text-white relative overflow-hidden">
-              <div className="absolute -top-10 -right-10 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
-              <div className="absolute bottom-6 left-6 grid grid-cols-5 gap-2 opacity-15 hidden sm:grid">
-                {Array.from({ length: 25 }).map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-                ))}
+            <div className="relative bg-gradient-to-br from-primary via-primary to-navy rounded-2xl overflow-hidden text-white">
+              <div className="absolute inset-0">
+                <Image src={images.insight7} alt="" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/50" />
               </div>
 
-              <div className="relative max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 rounded-full text-accent text-xs font-semibold uppercase tracking-wider mb-6">
-                  <Tag className="w-3 h-3" />
-                  Featured — {featuredInsight.category}
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
-                  {featuredInsight.title}
-                </h2>
-                <p className="mt-4 text-white/70 leading-relaxed">
-                  {featuredInsight.excerpt}
-                </p>
-                <div className="mt-6 flex items-center gap-6 text-sm text-white/50">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {featuredInsight.readTime}
-                  </span>
-                  <span>{featuredInsight.date}</span>
-                </div>
-                <div className="mt-8">
-                  <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-dark transition-all cursor-pointer">
-                    Read Full Analysis
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+              <div className="relative p-10 lg:p-16">
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 rounded-full text-accent text-xs font-semibold uppercase tracking-wider mb-6">
+                    <Tag className="w-3 h-3" />
+                    Featured — {featuredInsight.category}
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-bold leading-tight">
+                    {featuredInsight.title}
+                  </h2>
+                  <p className="mt-4 text-white/70 leading-relaxed">
+                    {featuredInsight.excerpt}
+                  </p>
+                  <div className="mt-6 flex items-center gap-6 text-sm text-white/50">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      {featuredInsight.readTime}
+                    </span>
+                    <span>{featuredInsight.date}</span>
+                  </div>
+                  <div className="mt-8">
+                    <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-white font-semibold text-sm hover:bg-accent-dark transition-all cursor-pointer">
+                      Read Full Analysis
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -176,13 +182,21 @@ export default function InsightsPage() {
             {insights.map((insight, index) => (
               <AnimatedSection key={index} delay={index * 100}>
                 <div className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col cursor-pointer">
-                  <div className="h-2 bg-gradient-to-r from-primary to-accent" />
-                  <div className="p-8 flex flex-col flex-grow">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="px-3 py-1 bg-primary/5 rounded-full text-xs font-semibold text-primary uppercase tracking-wider">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={insight.image}
+                      alt={insight.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-primary uppercase tracking-wider">
                         {insight.category}
                       </span>
                     </div>
+                  </div>
+                  <div className="p-8 flex flex-col flex-grow">
                     <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors leading-tight">
                       {insight.title}
                     </h3>

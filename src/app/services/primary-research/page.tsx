@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Search,
   ArrowRight,
@@ -19,6 +20,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Primary Market Research',
@@ -126,12 +128,10 @@ export default function PrimaryResearchPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-[400px] h-[400px] border-[50px] border-accent rounded-full opacity-10" />
-        <div className="absolute bottom-8 right-12 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
-          {Array.from({ length: 36 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-white" />
-          ))}
+      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.doctor} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -152,19 +152,25 @@ export default function PrimaryResearchPage() {
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="max-w-4xl">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Overview</p>
-              <h2 className="mt-3 text-3xl font-bold text-slate-900">First-Hand Intelligence From the Stakeholders Who Matter</h2>
-              <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-lg">
-                <p>
-                  In an industry where clinical data alone cannot predict commercial success, understanding the human factors — physician prescribing habits, patient treatment preferences, payer reimbursement logic — is essential. Medinsights+ primary research delivers these insights through direct engagement with the people who influence healthcare decisions.
-                </p>
-                <p>
-                  Our team of experienced researchers brings specialized therapeutic knowledge to every engagement, ensuring that interviews, surveys, and advisory boards are designed to extract actionable insights rather than surface-level opinions. We recruit from our proprietary network of 10,000+ healthcare professionals across 30+ countries, enabling rapid fieldwork execution even in niche specialties and rare disease areas.
-                </p>
-                <p>
-                  Whether you need a focused qualitative exploration with 15 KOLs or a multi-country quantitative study surveying 1,000+ physicians, our flexible engagement model scales to match your strategic questions, timeline, and budget.
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="max-w-4xl">
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Overview</p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-900">First-Hand Intelligence From the Stakeholders Who Matter</h2>
+                <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-lg">
+                  <p>
+                    In an industry where clinical data alone cannot predict commercial success, understanding the human factors — physician prescribing habits, patient treatment preferences, payer reimbursement logic — is essential. Medinsights+ primary research delivers these insights through direct engagement with the people who influence healthcare decisions.
+                  </p>
+                  <p>
+                    Our team of experienced researchers brings specialized therapeutic knowledge to every engagement, ensuring that interviews, surveys, and advisory boards are designed to extract actionable insights rather than surface-level opinions. We recruit from our proprietary network of 10,000+ healthcare professionals across 30+ countries, enabling rapid fieldwork execution even in niche specialties and rare disease areas.
+                  </p>
+                  <p>
+                    Whether you need a focused qualitative exploration with 15 KOLs or a multi-country quantitative study surveying 1,000+ physicians, our flexible engagement model scales to match your strategic questions, timeline, and budget.
+                  </p>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden h-96 hidden lg:block">
+                <Image src={images.teamMeeting} alt="Research team meeting" fill className="object-cover" />
+                <div className="absolute inset-0 bg-primary/20" />
               </div>
             </div>
           </AnimatedSection>
@@ -198,23 +204,33 @@ export default function PrimaryResearchPage() {
       {/* Quantitative Research */}
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Quantitative Research</p>
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">Statistically Rigorous, Strategically Relevant</h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-3xl">Our quantitative research programs deliver the statistical power and analytical depth needed to support high-stakes commercial and clinical decisions with confidence.</p>
-          </AnimatedSection>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {quantitativeServices.map((service, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <div className="card-premium p-8 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <service.icon className="w-6 h-6 text-accent" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-slate-900">{service.title}</h3>
-                  <p className="mt-3 text-slate-600 leading-relaxed">{service.description}</p>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <AnimatedSection>
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Quantitative Research</p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-900">Statistically Rigorous, Strategically Relevant</h2>
+                <p className="mt-4 text-lg text-slate-600 max-w-3xl">Our quantitative research programs deliver the statistical power and analytical depth needed to support high-stakes commercial and clinical decisions with confidence.</p>
               </AnimatedSection>
-            ))}
+              <div className="mt-12 space-y-8">
+                {quantitativeServices.map((service, i) => (
+                  <AnimatedSection key={i} delay={i * 100}>
+                    <div className="card-premium p-8 h-full">
+                      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                        <service.icon className="w-6 h-6 text-accent" />
+                      </div>
+                      <h3 className="mt-4 text-lg font-bold text-slate-900">{service.title}</h3>
+                      <p className="mt-3 text-slate-600 leading-relaxed">{service.description}</p>
+                    </div>
+                  </AnimatedSection>
+                ))}
+              </div>
+            </div>
+            <AnimatedSection delay={200}>
+              <div className="relative rounded-2xl overflow-hidden h-[500px] sticky top-32 hidden lg:block">
+                <Image src={images.dataAnalytics} alt="Data analytics" fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -260,8 +276,11 @@ export default function PrimaryResearchPage() {
       </section>
 
       {/* Methodology */}
-      <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute -bottom-16 -right-16 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
+      <section className="relative py-24 lg:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.microscope} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-primary/95" />
+        </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-accent font-semibold text-sm uppercase tracking-wider">Our Methodology</p>
@@ -286,20 +305,30 @@ export default function PrimaryResearchPage() {
       {/* Deliverables */}
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Deliverables</p>
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">What You Receive</h2>
-          </AnimatedSection>
-          <AnimatedSection delay={150}>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
-              {deliverables.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <span className="text-slate-700">{item}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <AnimatedSection>
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Deliverables</p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-900">What You Receive</h2>
+              </AnimatedSection>
+              <AnimatedSection delay={150}>
+                <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {deliverables.map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                      <span className="text-slate-700">{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </AnimatedSection>
             </div>
-          </AnimatedSection>
+            <AnimatedSection delay={200}>
+              <div className="relative rounded-2xl overflow-hidden h-80 hidden lg:block">
+                <Image src={images.research2} alt="Research deliverables" fill className="object-cover" />
+                <div className="absolute inset-0 bg-primary/20" />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -312,18 +341,28 @@ export default function PrimaryResearchPage() {
           </AnimatedSection>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: BarChart3, title: 'Secondary Research', href: '/services/secondary-research', desc: 'Evidence-based competitive intelligence and market analysis from published data sources.' },
-              { icon: FileText, title: 'Syndicated Reports', href: '/services/syndicated-reports', desc: 'Multi-client research reports covering therapeutic landscapes and market trackers.' },
-              { icon: Briefcase, title: 'Strategic Consulting', href: '/services/consulting', desc: 'Advisory services for market entry, competitive positioning, and launch excellence.' },
+              { icon: BarChart3, title: 'Secondary Research', href: '/services/secondary-research', desc: 'Evidence-based competitive intelligence and market analysis from published data sources.', image: images.dataAnalytics },
+              { icon: FileText, title: 'Syndicated Reports', href: '/services/syndicated-reports', desc: 'Multi-client research reports covering therapeutic landscapes and market trackers.', image: images.chartsDashboard },
+              { icon: Briefcase, title: 'Strategic Consulting', href: '/services/consulting', desc: 'Advisory services for market entry, competitive positioning, and launch excellence.', image: images.consulting },
             ].map((svc, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <Link href={svc.href} className="group card-premium p-8 block h-full">
-                  <svc.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" />
-                  <h3 className="mt-4 text-lg font-bold text-slate-900">{svc.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{svc.desc}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent transition-colors">
-                    Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                <Link href={svc.href} className="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image src={svc.image} alt={svc.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <svc.icon className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900">{svc.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{svc.desc}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent transition-colors">
+                      Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
                 </Link>
               </AnimatedSection>
             ))}
