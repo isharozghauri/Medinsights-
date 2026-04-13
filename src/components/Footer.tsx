@@ -64,11 +64,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/">
               <Image
-                src={`${basePath}/logo-white.svg`}
+                src={`${basePath}/logo-white.png`}
                 alt="Medinsights+"
-                width={180}
-                height={36}
-                className="h-9 w-auto"
+                width={220}
+                height={44}
+                className="h-11 w-auto"
               />
             </Link>
             <p className="mt-6 text-white/60 leading-relaxed max-w-sm">

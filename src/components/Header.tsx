@@ -59,11 +59,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src={scrolled ? `${basePath}/logo.svg` : `${basePath}/logo-white.svg`}
+              src={scrolled ? `${basePath}/logo-color.png` : `${basePath}/logo-white.png`}
               alt="Medinsights+"
-              width={200}
-              height={40}
-              className="h-9 w-auto"
+              width={240}
+              height={48}
+              className="h-10 sm:h-12 w-auto"
               priority
             />
           </Link>
