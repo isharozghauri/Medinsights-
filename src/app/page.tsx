@@ -24,28 +24,28 @@ const services = [
     title: 'Primary Research',
     description:
       'In-depth qualitative and quantitative research with KOLs, physicians, patients, and payers to uncover actionable insights.',
-    href: '/services#primary-research',
+    href: '/services/primary-research',
   },
   {
     icon: BarChart3,
     title: 'Secondary Research',
     description:
       'Comprehensive desk research and analysis of published data, regulatory filings, clinical trials, and market databases.',
-    href: '/services#secondary-research',
+    href: '/services/secondary-research',
   },
   {
     icon: FileText,
     title: 'Syndicated Research',
     description:
       'Multi-client research reports covering therapeutic areas, market landscapes, competitive intelligence, and forecasting.',
-    href: '/services#syndicated-research',
+    href: '/services/syndicated-reports',
   },
   {
     icon: Users,
     title: 'Strategic Consulting',
     description:
       'Expert advisory services for market entry, competitive positioning, pipeline assessment, and commercialization strategy.',
-    href: '/services#consulting',
+    href: '/services/consulting',
   },
 ];
 
