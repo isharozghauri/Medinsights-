@@ -49,6 +49,7 @@ const industries = [
       'Cardiovascular & Metabolic',
       'Infectious Disease',
     ],
+    image: images.pharmaceutical,
   },
   {
     id: 'biotechnology',
@@ -79,6 +80,7 @@ const industries = [
       'Orphan Drugs',
       'Precision Medicine',
     ],
+    image: images.biotech,
   },
   {
     id: 'medtech',
@@ -109,6 +111,7 @@ const industries = [
       'Digital Health',
       'Point-of-Care Testing',
     ],
+    image: images.medicalDevice,
   },
   {
     id: 'agencies',
@@ -139,6 +142,7 @@ const industries = [
       'Payer Research',
       'Medical Device Research',
     ],
+    image: images.teamMeeting,
   },
 ];
 
@@ -150,11 +154,6 @@ export default function IndustriesPage() {
         <div className="absolute inset-0">
           <Image src={images.heroIndustries} alt="" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
-        </div>
-        <div className="absolute bottom-8 left-12 grid grid-cols-6 gap-3 opacity-10 hidden lg:grid">
-          {Array.from({ length: 36 }).map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-accent" />
-          ))}
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -181,7 +180,7 @@ export default function IndustriesPage() {
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-              <div className="lg:col-span-5">
+              <div className={`lg:col-span-5 ${sectionIndex % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <AnimatedSection>
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent/80 flex items-center justify-center">
                     <industry.icon className="w-8 h-8 text-white" />
@@ -189,6 +188,12 @@ export default function IndustriesPage() {
                   <h2 className="mt-5 text-3xl font-bold text-slate-900">{industry.title}</h2>
                   <p className="text-accent font-medium mt-2">{industry.subtitle}</p>
                   <p className="mt-4 text-slate-600 leading-relaxed">{industry.description}</p>
+
+                  {/* Industry image */}
+                  <div className="mt-8 relative rounded-2xl overflow-hidden h-56">
+                    <Image src={industry.image} alt={industry.title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+                  </div>
 
                   <div className="mt-8">
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">
@@ -206,7 +211,7 @@ export default function IndustriesPage() {
                 </AnimatedSection>
               </div>
 
-              <div className="lg:col-span-7">
+              <div className={`lg:col-span-7 ${sectionIndex % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <AnimatedSection delay={150}>
                   <div className="bg-white rounded-2xl p-8 border border-slate-200">
                     <h3 className="text-lg font-bold text-slate-900 mb-6">
@@ -255,8 +260,11 @@ export default function IndustriesPage() {
       ))}
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
-        <div className="absolute -top-16 -left-16 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
+      <section className="relative py-24 lg:py-32 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src={images.labResearch} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-primary/95" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>

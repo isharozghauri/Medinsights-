@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 };
 
 const reportCategories = [
-  { icon: BookOpen, title: 'Therapeutic Landscape Reports', description: 'Comprehensive single-point-in-time analyses covering disease overview, epidemiology, treatment landscape, competitive environment, pipeline assessment, market sizing, and 10-year forecasts. Each report runs 150-300 pages and is supported by proprietary primary research with 50-100+ KOL interviews.', features: ['Disease overview and pathophysiology', 'Epidemiology and patient segmentation', 'Current treatment algorithms and guidelines', 'Competitive product profiles and positioning', 'Pipeline analysis across all phases', 'Market sizing and revenue forecasts', 'Unmet needs and future outlook'] },
-  { icon: TrendingUp, title: 'Quarterly Market Trackers', description: 'Ongoing monitoring studies that track prescribing patterns, market shares, brand perceptions, and emerging trends through quarterly physician surveys and secondary data analysis. Ideal for commercial teams needing continuous competitive intelligence.', features: ['Brand awareness and perception tracking', 'Prescribing behavior and switching analysis', 'Market share trending and forecasting', 'Competitive messaging effectiveness', 'Quarterly KOL sentiment updates', 'Emerging competitor monitoring'] },
-  { icon: Layers, title: 'Pipeline Monitors', description: 'Regular updates on clinical development activity, regulatory milestones, and launch timelines across therapeutic areas. Our pipeline monitors combine secondary tracking with analyst commentary on competitive implications and probability-adjusted forecasts.', features: ['Phase-by-phase pipeline mapping', 'Clinical trial design and endpoint analysis', 'Regulatory milestone tracking', 'Launch timeline projections', 'Competitive impact assessment', 'Probability-adjusted revenue forecasts'] },
-  { icon: Globe2, title: 'Market Access Digests', description: 'Country-specific market access intelligence covering HTA decisions, formulary placements, reimbursement conditions, and pricing benchmarks. Available for major markets including US, EU5, Japan, Canada, Australia, and emerging markets.', features: ['HTA decision summaries and rationale', 'Formulary status and tier positioning', 'Reimbursement conditions and restrictions', 'Pricing benchmarks and comparisons', 'Market access strategy implications', 'Payer landscape and decision-maker mapping'] },
+  { icon: BookOpen, title: 'Therapeutic Landscape Reports', description: 'Comprehensive single-point-in-time analyses covering disease overview, epidemiology, treatment landscape, competitive environment, pipeline assessment, market sizing, and 10-year forecasts. Each report runs 150-300 pages and is supported by proprietary primary research with 50-100+ KOL interviews.', features: ['Disease overview and pathophysiology', 'Epidemiology and patient segmentation', 'Current treatment algorithms and guidelines', 'Competitive product profiles and positioning', 'Pipeline analysis across all phases', 'Market sizing and revenue forecasts', 'Unmet needs and future outlook'], image: images.research2 },
+  { icon: TrendingUp, title: 'Quarterly Market Trackers', description: 'Ongoing monitoring studies that track prescribing patterns, market shares, brand perceptions, and emerging trends through quarterly physician surveys and secondary data analysis. Ideal for commercial teams needing continuous competitive intelligence.', features: ['Brand awareness and perception tracking', 'Prescribing behavior and switching analysis', 'Market share trending and forecasting', 'Competitive messaging effectiveness', 'Quarterly KOL sentiment updates', 'Emerging competitor monitoring'], image: images.dataAnalytics },
+  { icon: Layers, title: 'Pipeline Monitors', description: 'Regular updates on clinical development activity, regulatory milestones, and launch timelines across therapeutic areas. Our pipeline monitors combine secondary tracking with analyst commentary on competitive implications and probability-adjusted forecasts.', features: ['Phase-by-phase pipeline mapping', 'Clinical trial design and endpoint analysis', 'Regulatory milestone tracking', 'Launch timeline projections', 'Competitive impact assessment', 'Probability-adjusted revenue forecasts'], image: images.microscope },
+  { icon: Globe2, title: 'Market Access Digests', description: 'Country-specific market access intelligence covering HTA decisions, formulary placements, reimbursement conditions, and pricing benchmarks. Available for major markets including US, EU5, Japan, Canada, Australia, and emerging markets.', features: ['HTA decision summaries and rationale', 'Formulary status and tier positioning', 'Reimbursement conditions and restrictions', 'Pricing benchmarks and comparisons', 'Market access strategy implications', 'Payer landscape and decision-maker mapping'], image: images.pills },
 ];
 
 const therapeuticAreas = [
@@ -55,12 +55,18 @@ export default function SyndicatedReportsPage() {
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="max-w-4xl">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Overview</p>
-              <h2 className="mt-3 text-3xl font-bold text-slate-900">Multi-Client Intelligence, Single-Source Depth</h2>
-              <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-lg">
-                <p>Not every strategic question requires a custom research engagement. Our syndicated research program provides cost-effective access to the same caliber of market intelligence that drives decision-making at the world&apos;s leading healthcare companies — at a fraction of the cost and timeline of bespoke research.</p>
-                <p>Each syndicated report is developed by our therapeutic area specialists, combining rigorous secondary research with proprietary primary data from 50-100+ KOL interviews. Reports are updated regularly to reflect new clinical data, regulatory actions, and competitive developments, ensuring your team operates with current intelligence.</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="max-w-4xl">
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider">Overview</p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-900">Multi-Client Intelligence, Single-Source Depth</h2>
+                <div className="mt-6 space-y-4 text-slate-600 leading-relaxed text-lg">
+                  <p>Not every strategic question requires a custom research engagement. Our syndicated research program provides cost-effective access to the same caliber of market intelligence that drives decision-making at the world&apos;s leading healthcare companies — at a fraction of the cost and timeline of bespoke research.</p>
+                  <p>Each syndicated report is developed by our therapeutic area specialists, combining rigorous secondary research with proprietary primary data from 50-100+ KOL interviews. Reports are updated regularly to reflect new clinical data, regulatory actions, and competitive developments, ensuring your team operates with current intelligence.</p>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden h-96 hidden lg:block">
+                <Image src={images.officeModern} alt="Modern research office" fill className="object-cover" />
+                <div className="absolute inset-0 bg-primary/20" />
               </div>
             </div>
           </AnimatedSection>
@@ -70,21 +76,27 @@ export default function SyndicatedReportsPage() {
       {reportCategories.map((cat, idx) => (
         <section key={idx} className={`py-24 lg:py-32 ${idx % 2 === 0 ? 'bg-slate-50' : ''}`}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-              <div className="lg:col-span-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div className={`lg:col-span-6 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <AnimatedSection>
                   <div className="w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center"><cat.icon className="w-7 h-7 text-primary" /></div>
                   <h2 className="mt-5 text-2xl font-bold text-slate-900">{cat.title}</h2>
                   <p className="mt-4 text-slate-600 leading-relaxed text-lg">{cat.description}</p>
                 </AnimatedSection>
-              </div>
-              <div className="lg:col-span-6">
                 <AnimatedSection delay={150}>
-                  <div className="bg-white rounded-2xl p-8 border border-slate-200">
+                  <div className="mt-6 bg-white rounded-2xl p-8 border border-slate-200">
                     <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 mb-4">What&apos;s Included</h3>
                     <div className="space-y-3">
                       {cat.features.map((f, i) => (<div key={i} className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" /><span className="text-slate-700">{f}</span></div>))}
                     </div>
+                  </div>
+                </AnimatedSection>
+              </div>
+              <div className={`lg:col-span-6 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+                <AnimatedSection delay={200}>
+                  <div className="relative rounded-2xl overflow-hidden h-80">
+                    <Image src={cat.image} alt={cat.title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
                   </div>
                 </AnimatedSection>
               </div>
@@ -132,12 +144,27 @@ export default function SyndicatedReportsPage() {
           <AnimatedSection><p className="text-accent font-semibold text-sm uppercase tracking-wider">Related Services</p><h2 className="mt-3 text-3xl font-bold text-slate-900">Explore More Capabilities</h2></AnimatedSection>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Search, title: 'Primary Research', href: '/services/primary-research', desc: 'Custom qualitative and quantitative research with KOLs, physicians, and patients.' },
-              { icon: BarChart3, title: 'Secondary Research', href: '/services/secondary-research', desc: 'Competitive intelligence, market sizing, and regulatory analysis.' },
-              { icon: Briefcase, title: 'Strategic Consulting', href: '/services/consulting', desc: 'Advisory for market entry, positioning, and commercial strategy.' },
+              { icon: Search, title: 'Primary Research', href: '/services/primary-research', desc: 'Custom qualitative and quantitative research with KOLs, physicians, and patients.', image: images.doctor },
+              { icon: BarChart3, title: 'Secondary Research', href: '/services/secondary-research', desc: 'Competitive intelligence, market sizing, and regulatory analysis.', image: images.dataAnalytics },
+              { icon: Briefcase, title: 'Strategic Consulting', href: '/services/consulting', desc: 'Advisory for market entry, positioning, and commercial strategy.', image: images.consulting },
             ].map((svc, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <Link href={svc.href} className="group card-premium p-8 block h-full"><svc.icon className="w-8 h-8 text-primary group-hover:text-accent transition-colors" /><h3 className="mt-4 text-lg font-bold text-slate-900">{svc.title}</h3><p className="mt-2 text-sm text-slate-600">{svc.desc}</p><span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent transition-colors">Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></span></Link>
+                <Link href={svc.href} className="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300 h-full">
+                  <div className="relative h-48 overflow-hidden">
+                    <Image src={svc.image} alt={svc.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <svc.icon className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-bold text-slate-900">{svc.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{svc.desc}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-accent transition-colors">Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></span>
+                  </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
