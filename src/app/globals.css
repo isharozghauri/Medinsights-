@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0A2647;
-  --color-primary-light: #144272;
-  --color-primary-dark: #061428;
-  --color-accent: #0D9488;
-  --color-accent-light: #14B8A6;
-  --color-accent-dark: #0A7A70;
-  --color-secondary: #205295;
+  --color-primary: #022b87;
+  --color-primary-light: #0a3ba0;
+  --color-primary-dark: #011d5c;
+  --color-accent: #00d3d8;
+  --color-accent-light: #33e0e4;
+  --color-accent-dark: #00a8ac;
+  --color-navy: #072268;
   --color-slate-50: #F8FAFC;
   --color-slate-100: #F1F5F9;
   --color-slate-200: #E2E8F0;
@@ -18,8 +18,8 @@
   --color-slate-700: #334155;
   --color-slate-800: #1E293B;
   --color-slate-900: #0F172A;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
 }
 
 html {
@@ -34,7 +34,7 @@ body {
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #0A2647 0%, #0D9488 100%);
+  background: linear-gradient(135deg, #022b87 0%, #00d3d8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -42,7 +42,7 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -51,7 +51,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #94A3B8;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -70,7 +70,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #0D9488;
+  background: #00d3d8;
   transition: width 0.3s ease;
 }
 
@@ -78,15 +78,21 @@ body {
   width: 100%;
 }
 
-/* Glass morphism card effect */
-.glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+/* Dot pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, #022b87 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
 }
 
-/* Subtle pattern overlay */
-.pattern-overlay {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
-  background-size: 40px 40px;
+.dot-pattern-light {
+  background-image: radial-gradient(circle, rgba(2, 43, 135, 0.15) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+/* Section divider */
+.section-divider {
+  height: 4px;
+  width: 60px;
+  background: linear-gradient(90deg, #022b87, #00d3d8);
+  border-radius: 2px;
 }

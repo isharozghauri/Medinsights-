@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -39,31 +40,30 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  const isHomePage = pathname === '/';
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+          : isHomePage
+          ? 'bg-transparent'
+          : 'bg-primary'
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">M</span>
-              </div>
-              <div className="ml-3">
-                <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-primary' : 'text-white'}`}>
-                  Med<span className="text-accent">Insights</span>
-                </span>
-                <p className={`text-[10px] tracking-[0.2em] uppercase ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
-                  Healthcare Research
-                </p>
-              </div>
-            </div>
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src={scrolled ? '/logo.svg' : '/logo-white.svg'}
+              alt="Medinsights+"
+              width={200}
+              height={40}
+              className="h-9 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -82,20 +82,20 @@ export default function Header() {
                       pathname === item.href
                         ? 'text-accent'
                         : scrolled
-                        ? 'text-slate-700 hover:text-accent'
+                        ? 'text-slate-700 hover:text-primary'
                         : 'text-white/90 hover:text-white'
                     }`}
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                   </Link>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2 animate-in fade-in slide-in-from-top-2">
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-slate-100 py-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-accent transition-colors"
+                          className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-primary transition-colors"
                         >
                           {child.name}
                         </Link>
@@ -111,7 +111,7 @@ export default function Header() {
                     pathname === item.href
                       ? 'text-accent'
                       : scrolled
-                      ? 'text-slate-700 hover:text-accent'
+                      ? 'text-slate-700 hover:text-primary'
                       : 'text-white/90 hover:text-white'
                   }`}
                 >
@@ -121,7 +121,7 @@ export default function Header() {
             )}
             <Link
               href="/contact"
-              className="ml-4 inline-flex items-center px-5 py-2.5 rounded-full bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all shadow-lg shadow-accent/25 hover:shadow-accent/40"
+              className="ml-4 inline-flex items-center px-6 py-2.5 rounded-full bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all shadow-lg shadow-accent/25 hover:shadow-accent/40"
             >
               Get Started
             </Link>
@@ -145,7 +145,7 @@ export default function Header() {
                   href={item.href}
                   className={`block px-4 py-3 rounded-lg text-sm font-medium ${
                     pathname === item.href
-                      ? 'bg-accent/10 text-accent'
+                      ? 'bg-primary/5 text-primary'
                       : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
@@ -157,7 +157,7 @@ export default function Header() {
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-slate-500 hover:text-accent"
+                        className="block px-4 py-2 text-sm text-slate-500 hover:text-primary"
                       >
                         {child.name}
                       </Link>
