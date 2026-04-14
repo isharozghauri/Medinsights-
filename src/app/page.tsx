@@ -2,171 +2,166 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
+  ArrowUpRight,
   Search,
   BarChart3,
   FileText,
-  Users,
-  Microscope,
-  Pill,
-  HeartPulse,
-  Building2,
-  Globe2,
-  Award,
-  CheckCircle2,
-  ArrowUpRight,
-  ChevronRight,
-  MapPin,
   Briefcase,
-  Shield,
-  Zap,
-  Lock,
-  UserCheck,
-  Stethoscope,
-  Heart,
+  CheckCircle2,
+  Globe2,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import { images } from '@/lib/images';
 
 const services = [
   {
+    number: '01',
     icon: Search,
     title: 'Primary Research',
-    description: 'In-depth qualitative and quantitative research with KOLs, physicians, patients, and payers across 50+ therapeutic areas worldwide.',
+    description:
+      'First-hand intelligence from healthcare professionals, patients, and payers through rigorous qualitative and quantitative research.',
     href: '/services/primary-research',
-    image: images.doctor,
+    image: images.labResearch,
   },
   {
+    number: '02',
     icon: BarChart3,
     title: 'Secondary Research',
-    description: 'Comprehensive desk research — competitive intelligence, market sizing, regulatory analysis, and pricing benchmarks from 100+ data sources.',
+    description:
+      'Evidence-based market intelligence synthesized from clinical, regulatory, and commercial data sources worldwide.',
     href: '/services/secondary-research',
     image: images.dataAnalytics,
   },
   {
+    number: '03',
     icon: FileText,
     title: 'Syndicated Reports',
-    description: 'Multi-client landscape reports, pipeline monitors, and market trackers covering high-value therapeutic areas with regular updates.',
+    description:
+      'Multi-client landscape reports and market trackers covering high-value therapeutic areas with continuous updates.',
     href: '/services/syndicated-reports',
     image: images.chartsDashboard,
   },
   {
+    number: '04',
     icon: Briefcase,
     title: 'Strategic Consulting',
-    description: 'Research-informed advisory for market entry, competitive positioning, commercial due diligence, and launch excellence.',
+    description:
+      'Research-informed advisory for market entry, competitive positioning, commercial due diligence, and launch excellence.',
     href: '/services/consulting',
     image: images.consulting,
   },
 ];
 
 const industries = [
-  { icon: Pill, title: 'Pharmaceuticals', description: 'Market access, pricing intelligence, and competitive landscape analysis for global pharma.', href: '/industries#pharmaceuticals', image: images.pharmaceutical },
-  { icon: Microscope, title: 'Biotechnology', description: 'Pipeline assessment, KOL mapping, and market opportunity evaluation for emerging therapies.', href: '/industries#biotechnology', image: images.microscope },
-  { icon: HeartPulse, title: 'Medical Technology', description: 'Device adoption research, HCP preference studies, and market sizing for medtech.', href: '/industries#medtech', image: images.medicalDevice },
-  { icon: Building2, title: 'Research Agencies', description: 'White-label research, fieldwork, and analytical support for market research firms.', href: '/industries#agencies', image: images.teamMeeting },
+  { title: 'Pharmaceuticals', href: '/industries#pharmaceuticals', image: images.pharmaceutical },
+  { title: 'Biotechnology', href: '/industries#biotechnology', image: images.biotech },
+  { title: 'Medical Technology', href: '/industries#medtech', image: images.medicalDevice },
+  { title: 'Research Agencies', href: '/industries#agencies', image: images.teamMeeting },
 ];
 
 const stats = [
-  { value: '500+', label: 'Projects Delivered' },
-  { value: '50+', label: 'Therapeutic Areas' },
-  { value: '30+', label: 'Countries Covered' },
-  { value: '10,000+', label: 'KOL Network' },
-  { value: '200+', label: 'Clients Served' },
-  { value: '98%', label: 'Client Retention' },
+  { value: '500+', label: 'Projects Delivered Worldwide' },
+  { value: '50+', label: 'Therapeutic Areas Covered' },
+  { value: '10,000+', label: 'Healthcare Professionals in Network' },
+  { value: '98%', label: 'Client Retention Rate' },
 ];
 
 const testimonials = [
   {
-    quote: 'Medinsights+ delivered a comprehensive competitive landscape analysis that directly informed our go-to-market strategy. Their depth of expertise in oncology research is unmatched.',
-    author: 'VP of Strategy',
+    quote:
+      'Medinsights+ delivered a competitive landscape analysis that directly informed our go-to-market strategy. Their depth of expertise in oncology research is unmatched.',
+    author: 'Vice President, Strategy',
     company: 'Top 10 Global Pharmaceutical Company',
-    image: images.insight1,
   },
   {
-    quote: "The team's ability to recruit hard-to-reach KOLs and extract meaningful insights from primary research has been invaluable for our pipeline prioritization decisions.",
+    quote:
+      "Their ability to recruit hard-to-reach KOLs and extract meaningful insights from primary research has been invaluable for our pipeline prioritization decisions.",
     author: 'Director of Market Research',
     company: 'Leading Biotechnology Firm',
-    image: images.insight2,
   },
-  {
-    quote: 'We rely on Medinsights+ as an extension of our in-house research team. Their turnaround times and quality of deliverables consistently exceed expectations.',
-    author: 'Head of Commercial Strategy',
-    company: 'Global MedTech Company',
-    image: images.insight3,
-  },
-];
-
-const whyUs = [
-  { icon: Award, title: 'Therapeutic Expertise', description: 'Specialized analysts across 50+ disease areas including oncology, immunology, rare diseases, CNS, and cardiovascular.' },
-  { icon: Globe2, title: 'Global KOL Network', description: 'Proprietary panel of 10,000+ healthcare professionals across 30+ countries for rapid recruitment.' },
-  { icon: Shield, title: 'Rigorous Methodology', description: 'Every project follows our proprietary quality framework ensuring accuracy, reliability, and actionability.' },
-  { icon: Users, title: 'Client Partnership', description: 'Dedicated project teams that function as an extension of your organization.' },
-  { icon: Zap, title: 'Speed & Agility', description: 'Flexible engagement models with rapid turnaround — from 2-week sprints to multi-year programs.' },
-  { icon: Lock, title: 'Data Security & Compliance', description: 'GDPR, HIPAA, and ISO 27001 compliant. Enterprise-grade data protection for sensitive research.' },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background image */}
+      {/* ════════════════════ HERO - Editorial ════════════════════ */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-navy">
         <div className="absolute inset-0">
           <Image
             src={images.heroMain}
             alt=""
             fill
-            className="object-cover"
+            className="object-cover opacity-40"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-primary/90 to-primary/60" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-accent text-sm font-medium mb-8 border border-white/10">
-              <Globe2 className="w-4 h-4" />
-              Global Healthcare Market Intelligence
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1]">
-              Insights That Drive
-              <span className="block text-accent mt-2">Smarter Healthcare Decisions</span>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-32 w-full">
+          <div className="max-w-3xl">
+            <div className="eyebrow text-accent mb-8">Global Healthcare Intelligence</div>
+            <h1 className="text-white">
+              Research that shapes the future of healthcare.
             </h1>
-
-            <p className="mt-8 text-lg text-white/70 leading-relaxed max-w-xl">
-              Medinsights+ empowers pharmaceutical, biotechnology, and medical technology
-              companies with actionable research and intelligence to navigate complex
-              healthcare markets with confidence.
+            <p className="mt-8 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed font-light">
+              Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
+              leaders worldwide to deliver research and intelligence that drives confident,
+              evidence-based decisions.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-primary px-8 py-4 text-base justify-center">
-                Schedule a Consultation <ArrowRight className="w-5 h-5" />
+            <div className="mt-12 flex flex-col sm:flex-row gap-4">
+              <Link href="/contact" className="btn-primary">
+                Start a Conversation <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/services" className="btn-secondary px-8 py-4 text-base justify-center">
-                Explore Our Services
+              <Link href="/services" className="btn-secondary">
+                Explore Our Capabilities
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-accent rounded-full" />
-          </div>
+        {/* Corner mark */}
+        <div className="absolute bottom-8 right-8 text-white/30 text-xs font-mono tracking-widest hidden lg:block">
+          EST. 2009 · GLOBAL
         </div>
       </section>
 
-      {/* ═══════════════════════ STATS BAR ═══════════════════════ */}
-      <section className="relative -mt-20 z-10 pb-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 lg:p-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 border border-slate-100">
+      {/* ════════════════════ INTRO + STATS ════════════════════ */}
+      <section className="py-24 lg:py-32 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <div className="eyebrow">About Medinsights+</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-slate-900">
+                A research partner to healthcare&apos;s most ambitious organizations.
+              </h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-lg text-slate-600 leading-relaxed">
+                For over fifteen years, we have been the research partner of choice for
+                healthcare organizations seeking clarity in complex, rapidly evolving markets.
+                Our work combines deep therapeutic expertise, rigorous methodology, and global
+                reach to produce intelligence that our clients rely on to make critical decisions.
+              </p>
+              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+                We serve over 200 pharmaceutical, biotechnology, medical technology, and consulting
+                organizations across every major global market, from established therapeutic areas
+                to the most advanced gene and cell therapies.
+              </p>
+              <Link href="/about" className="btn-ghost mt-8">
+                Learn about our firm <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Editorial stats bar */}
+          <div className="mt-24 pt-16 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, i) => (
               <AnimatedSection key={i} delay={i * 80}>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold gradient-text">{stat.value}</div>
-                  <div className="mt-1 text-xs sm:text-sm text-slate-500 font-medium">{stat.label}</div>
+                <div>
+                  <div className="text-4xl lg:text-5xl font-serif text-primary" style={{ fontWeight: 400 }}>{stat.value}</div>
+                  <div className="mt-3 text-sm text-slate-500 max-w-[180px] leading-snug">{stat.label}</div>
                 </div>
               </AnimatedSection>
             ))}
@@ -174,104 +169,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════ SERVICES ═══════════════════════ */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Our Services</p>
-              <h2 className="mt-3 text-slate-900">Comprehensive Healthcare Research Solutions</h2>
-              <p className="mt-4 text-lg text-slate-600">Four integrated service pillars designed to power every dimension of your healthcare market intelligence.</p>
+      {/* ════════════════════ SERVICES - Editorial Numbered List ════════════════════ */}
+      <section className="py-24 lg:py-32 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+            <div className="lg:col-span-5">
+              <div className="eyebrow">Our Capabilities</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-slate-900">Four practice areas. One integrated platform.</h2>
             </div>
-          </AnimatedSection>
+            <div className="lg:col-span-6 lg:col-start-7">
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Each of our four practice areas is designed to address a distinct dimension of
+                market intelligence. Together, they form a comprehensive ecosystem that delivers
+                the breadth and depth required for today&apos;s most complex healthcare decisions.
+              </p>
+            </div>
+          </div>
 
-          <div className="mt-16 space-y-6">
+          <div className="space-y-0 border-t border-slate-200">
             {services.map((service, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <Link href={service.href} className="group grid grid-cols-1 lg:grid-cols-12 gap-0 bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-slate-300 transition-all duration-500">
-                  {/* Image */}
-                  <div className={`relative h-64 lg:h-auto lg:col-span-4 overflow-hidden ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <Image src={service.image} alt={service.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent lg:bg-gradient-to-r" />
-                    <div className="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
-                      <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        <service.icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                  </div>
-                  {/* Content */}
-                  <div className={`p-8 lg:p-10 lg:col-span-8 flex flex-col justify-center ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <h3 className="text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="mt-3 text-slate-600 leading-relaxed text-lg">{service.description}</p>
-                    <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-accent transition-colors">
-                      Explore {service.title} <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                    </div>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ WHY US - with background image ═══════════════════════ */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.labResearch} alt="" fill className="object-cover" />
-          <div className="absolute inset-0 bg-primary/95" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto text-white">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Why Medinsights+</p>
-              <h2 className="mt-3">Your Strategic Advantage in Healthcare Intelligence</h2>
-              <p className="mt-4 text-lg text-white/60">We combine deep therapeutic expertise with rigorous methodology to deliver insights that directly impact your business outcomes.</p>
-            </div>
-          </AnimatedSection>
-
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyUs.map((item, i) => (
               <AnimatedSection key={i} delay={i * 80}>
-                <div className="bg-white/[0.06] backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/[0.1] transition-colors h-full">
-                  <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-accent" />
+                <Link href={service.href} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 py-10 lg:py-12 border-b border-slate-200 hover:bg-white transition-colors duration-500 px-4 -mx-4">
+                  <div className="lg:col-span-1">
+                    <div className="text-sm font-mono text-accent tracking-widest">{service.number}</div>
                   </div>
-                  <h3 className="mt-5 text-lg font-bold text-white">{item.title}</h3>
-                  <p className="mt-2 text-white/60 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ INDUSTRIES ═══════════════════════ */}
-      <section className="py-24 lg:py-32 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Industries We Serve</p>
-              <h2 className="mt-3 text-slate-900">Deep Expertise Across Healthcare Sectors</h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {industries.map((industry, i) => (
-              <AnimatedSection key={i} delay={i * 100}>
-                <Link href={industry.href} className="group relative block rounded-2xl overflow-hidden h-72">
-                  <Image src={industry.image} alt={industry.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-accent/20 backdrop-blur-sm flex items-center justify-center">
-                        <industry.icon className="w-5 h-5 text-accent" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white">{industry.title}</h3>
+                  <div className="lg:col-span-5">
+                    <h3 className="text-slate-900 group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="mt-3 text-slate-600 leading-relaxed">{service.description}</p>
+                    <div className="mt-6 inline-flex items-center gap-2 text-sm text-primary font-semibold group-hover:gap-3 transition-all">
+                      Explore practice <ArrowRight className="w-4 h-4" />
                     </div>
-                    <p className="text-white/70 text-sm leading-relaxed">{industry.description}</p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn more <ChevronRight className="w-4 h-4" />
-                    </span>
+                  </div>
+                  <div className="lg:col-span-6">
+                    <div className="relative h-56 lg:h-48 overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
+                    </div>
                   </div>
                 </Link>
               </AnimatedSection>
@@ -280,192 +219,216 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════════════ METHODOLOGY INFOGRAPHIC ═══════════════════════ */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Our Process</p>
-              <h2 className="mt-3 text-slate-900">How We Deliver Results</h2>
-              <p className="mt-4 text-lg text-slate-600">A proven four-phase methodology that ensures every engagement delivers actionable, high-quality intelligence.</p>
-            </div>
-          </AnimatedSection>
-
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-0">
-            {[
-              { step: '01', title: 'Discovery', description: 'Deep-dive into your strategic questions, market context, stakeholders, and desired outcomes.', color: 'bg-primary' },
-              { step: '02', title: 'Design', description: 'Custom research methodology, sample framework, and analytical approach tailored to your needs.', color: 'bg-primary-light' },
-              { step: '03', title: 'Execute', description: 'Rigorous fieldwork, data collection, and analysis with real-time quality monitoring and updates.', color: 'bg-accent-dark' },
-              { step: '04', title: 'Deliver', description: 'Actionable insights, strategic recommendations, presentations, and ongoing advisory support.', color: 'bg-accent' },
-            ].map((step, i) => (
-              <AnimatedSection key={i} delay={i * 150}>
-                <div className={`${step.color} text-white p-8 lg:p-10 relative ${i === 0 ? 'rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none' : ''} ${i === 3 ? 'rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none' : ''}`}>
-                  <div className="text-4xl font-bold text-white/20">{step.step}</div>
-                  <h3 className="mt-2 text-xl font-bold">{step.title}</h3>
-                  <p className="mt-2 text-white/70 text-sm leading-relaxed">{step.description}</p>
-                  {i < 3 && (
-                    <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10">
-                      <ChevronRight className="w-6 h-6 text-white/40" />
-                    </div>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
-      <section className="py-24 lg:py-32 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto">
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Client Testimonials</p>
-              <h2 className="mt-3 text-slate-900">Trusted by Healthcare Leaders Worldwide</h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={i} delay={i * 150}>
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 h-full flex flex-col">
-                  <div className="relative h-48">
-                    <Image src={t.image} alt="" fill className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
-                  </div>
-                  <div className="p-8 flex flex-col flex-grow">
-                    <div className="flex gap-1 mb-4">
-                      {Array.from({ length: 5 }).map((_, j) => (
-                        <svg key={j} className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <blockquote className="text-slate-700 leading-relaxed text-sm flex-grow italic">
-                      &ldquo;{t.quote}&rdquo;
-                    </blockquote>
-                    <div className="mt-6 pt-4 border-t border-slate-100">
-                      <div className="font-semibold text-slate-900 text-sm">{t.author}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">{t.company}</div>
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ JOIN PANEL CTA ═══════════════════════ */}
+      {/* ════════════════════ FEATURED IMAGE + TEXT ════════════════════ */}
       <section className="relative py-24 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.heroPanel} alt="" fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-accent-dark/95 to-primary/90" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-6">
-                  <UserCheck className="w-4 h-4 text-accent" />
-                  Join Our Research Panel
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
-                  Are You a Healthcare Professional, Patient, or Caregiver?
-                </h2>
-                <p className="mt-4 text-lg text-white/70 leading-relaxed">
-                  Join our global panel of 10,000+ participants. Share your expertise, participate in meaningful research, and receive competitive compensation for your time.
-                </p>
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <Link href="/join-panel" className="btn-primary px-8 py-4 text-base justify-center bg-white text-primary hover:bg-slate-100 shadow-none">
-                    Sign Up Now <ArrowRight className="w-5 h-5" />
-                  </Link>
-                  <Link href="/join-panel#how-it-works" className="btn-secondary px-8 py-4 text-base justify-center">
-                    Learn How It Works
-                  </Link>
-                </div>
-              </div>
-              <div className="hidden lg:grid grid-cols-3 gap-4">
-                {[
-                  { icon: Stethoscope, label: 'Physicians & Specialists', count: '5,000+' },
-                  { icon: Heart, label: 'Patients', count: '3,500+' },
-                  { icon: Users, label: 'Caregivers', count: '1,500+' },
-                ].map((item, i) => (
-                  <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10">
-                    <item.icon className="w-8 h-8 text-accent mx-auto" />
-                    <div className="mt-3 text-2xl font-bold text-white">{item.count}</div>
-                    <div className="mt-1 text-xs text-white/60">{item.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ═══════════════════════ GLOBAL PRESENCE ═══════════════════════ */}
-      <section className="py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider">Global Presence</p>
-              <h2 className="mt-3 text-slate-900">Research Coverage Across Key Markets</h2>
-              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                With offices and research capabilities spanning major healthcare markets, we provide localized insights with a global perspective.
-              </p>
-              <div className="mt-8 space-y-4">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={images.microscope}
+                  alt="Healthcare research"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={150}>
+              <div className="eyebrow">Why Medinsights+</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-slate-900">Expertise delivered with rigor, speed, and discretion.</h2>
+
+              <div className="mt-12 space-y-8">
                 {[
-                  { region: 'Americas', cities: 'New York, Boston, Toronto, Sao Paulo' },
-                  { region: 'Europe', cities: 'London, Frankfurt, Paris, Stockholm' },
-                  { region: 'Asia-Pacific', cities: 'Singapore, Tokyo, Sydney, Seoul' },
-                ].map((r) => (
-                  <div key={r.region} className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  {
+                    title: 'Therapeutic depth across 50+ areas',
+                    description: 'Specialized analysts with advanced degrees in life sciences, health economics, and clinical research.',
+                  },
+                  {
+                    title: 'Global reach, local insight',
+                    description: 'Proprietary network of 10,000+ healthcare professionals across every major global market.',
+                  },
+                  {
+                    title: 'Rigorous, proprietary methodology',
+                    description: 'Every engagement follows our quality framework for accurate, reliable, and actionable intelligence.',
+                  },
+                  {
+                    title: 'Enterprise-grade data security',
+                    description: 'GDPR, HIPAA, and ISO 27001 compliant operations protect your most sensitive research.',
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-5 pb-8 border-b border-slate-100 last:border-0 last:pb-0">
+                    <div className="shrink-0 text-sm font-mono text-accent tracking-widest pt-1">
+                      0{i + 1}
+                    </div>
                     <div>
-                      <div className="font-semibold text-slate-900">{r.region}</div>
-                      <div className="text-sm text-slate-500">{r.cities}</div>
+                      <h4 className="text-slate-900 text-base font-semibold">{item.title}</h4>
+                      <p className="mt-2 text-slate-600 leading-relaxed text-[15px]">{item.description}</p>
                     </div>
                   </div>
                 ))}
-              </div>
-            </AnimatedSection>
-            <AnimatedSection delay={200}>
-              <div className="relative rounded-2xl overflow-hidden h-96">
-                <Image src={images.globalMap} alt="Global presence" fill className="object-cover" />
-                <div className="absolute inset-0 bg-primary/30" />
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════ FINAL CTA ═══════════════════════ */}
+      {/* ════════════════════ INDUSTRIES - Minimal Grid ════════════════════ */}
       <section className="py-24 lg:py-32 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="relative bg-gradient-to-br from-primary via-primary to-navy rounded-3xl p-12 lg:p-20 text-center text-white overflow-hidden">
-              <div className="absolute -top-10 -left-10 w-48 h-48 border-[30px] border-accent rounded-full opacity-15" />
-              <div className="absolute -bottom-8 -right-8 w-40 h-40">
-                <div className="absolute inset-0 border-2 border-white/10 rounded-full" />
-                <div className="absolute inset-3 border-2 border-white/10 rounded-full" />
-                <div className="absolute inset-6 border-2 border-white/10 rounded-full" />
-              </div>
-              <div className="relative">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Ready to Gain a Competitive Edge?</h2>
-                <p className="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-                  Let&apos;s discuss how Medinsights+ can help you make smarter, faster, and more confident healthcare market decisions.
-                </p>
-                <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact" className="btn-primary px-8 py-4 text-base justify-center">
-                    Contact Our Team <ArrowUpRight className="w-5 h-5" />
-                  </Link>
-                  <Link href="/about" className="btn-secondary px-8 py-4 text-base justify-center">
-                    Learn About Us
-                  </Link>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+            <div className="lg:col-span-6">
+              <div className="eyebrow">Industries</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-slate-900">Specialized intelligence for every healthcare stakeholder.</h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industries.map((industry, i) => (
+              <AnimatedSection key={i} delay={i * 80}>
+                <Link href={industry.href} className="group block">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={industry.image}
+                      alt={industry.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-white text-xl">{industry.title}</h3>
+                      <div className="mt-2 inline-flex items-center gap-1 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                        View industry <ArrowRight className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════ TESTIMONIALS - Editorial Quotes ════════════════════ */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="eyebrow mb-4">Client Voices</div>
+          <div className="section-divider" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 mt-16">
+            {testimonials.map((t, i) => (
+              <AnimatedSection key={i} delay={i * 120}>
+                <div>
+                  <div className="text-6xl text-accent font-serif leading-none mb-4">&ldquo;</div>
+                  <blockquote className="text-xl lg:text-2xl text-slate-800 leading-relaxed font-serif font-normal italic">
+                    {t.quote}
+                  </blockquote>
+                  <div className="mt-8 pt-6 border-t border-slate-200">
+                    <div className="font-semibold text-slate-900">{t.author}</div>
+                    <div className="text-sm text-slate-500 mt-1">{t.company}</div>
+                  </div>
                 </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════ GLOBAL PRESENCE ════════════════════ */}
+      <section className="py-24 lg:py-32 bg-navy text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <Image src={images.globalMap} alt="" fill className="object-cover" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-5">
+              <div className="eyebrow text-accent">Global Reach</div>
+              <div className="h-px w-12 bg-accent mt-4" />
+              <h2 className="mt-6 text-white">Research coverage across every major healthcare market.</h2>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-lg text-white/70 leading-relaxed">
+                With offices and research capabilities spanning North America, Europe, and
+                Asia-Pacific, we provide localized market intelligence with a global perspective.
+              </p>
+
+              <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-8">
+                {[
+                  { region: 'Americas', cities: 'New York\nBoston\nToronto' },
+                  { region: 'Europe', cities: 'London\nFrankfurt\nParis' },
+                  { region: 'Asia-Pacific', cities: 'Singapore\nTokyo\nSydney' },
+                ].map((r) => (
+                  <div key={r.region}>
+                    <div className="text-accent text-xs uppercase tracking-widest font-semibold">{r.region}</div>
+                    <div className="mt-3 text-white/80 whitespace-pre-line leading-relaxed">{r.cities}</div>
+                  </div>
+                ))}
               </div>
             </div>
-          </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════ JOIN PANEL CTA ════════════════════ */}
+      <section className="py-24 lg:py-32 border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image src={images.patient} alt="" fill className="object-cover" />
+            </div>
+            <div>
+              <div className="eyebrow">For Participants</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-slate-900">Join our global research panel.</h2>
+              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+                Healthcare professionals, patients, and caregivers worldwide contribute to
+                our research programs. Share your expertise, participate in meaningful studies,
+                and receive competitive compensation for your time.
+              </p>
+
+              <div className="mt-8 grid grid-cols-3 gap-6 border-t border-slate-100 pt-8">
+                {[
+                  { count: '5,000+', label: 'Physicians' },
+                  { count: '3,500+', label: 'Patients' },
+                  { count: '1,500+', label: 'Caregivers' },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <div className="text-2xl font-serif text-primary" style={{ fontWeight: 400 }}>{item.count}</div>
+                    <div className="text-xs text-slate-500 mt-1">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/join-panel" className="btn-ghost mt-8">
+                Join the panel <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════ CLOSING CTA ════════════════════ */}
+      <section className="py-24 lg:py-32">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8 text-center">
+          <div className="eyebrow mb-4">Let&apos;s Connect</div>
+          <div className="section-divider mx-auto" />
+          <h2 className="mt-6 text-slate-900">
+            Ready to turn complex questions into confident decisions?
+          </h2>
+          <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Connect with our team to discuss how Medinsights+ can support your most important
+            healthcare market decisions.
+          </p>
+          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary">
+              Contact Our Team <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link href="/about" className="btn-ghost">
+              Learn about our firm <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </>
