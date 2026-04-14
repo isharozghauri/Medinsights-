@@ -123,10 +123,10 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={images.heroServices} alt="" fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60" />
+          <Image src={images.heroServices} alt="" fill className="object-cover opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

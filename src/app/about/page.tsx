@@ -85,17 +85,17 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-primary text-white pt-32 pb-20 overflow-hidden">
-        {/* Background image with gradient overlay */}
+      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
+        {/* Background image with strong overlay for text contrast */}
         <div className="absolute inset-0">
           <Image
             src={images.heroAbout}
             alt=""
             fill
-            className="object-cover"
+            className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

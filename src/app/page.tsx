@@ -91,10 +91,10 @@ export default function Home() {
             src={images.heroMain}
             alt=""
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-primary/90 to-primary/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/95 to-primary/80" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-32 w-full">
@@ -296,7 +296,7 @@ export default function Home() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/20" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <h3 className="text-white text-xl">{industry.title}</h3>
                       <div className="mt-2 inline-flex items-center gap-1 text-sm text-accent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -338,8 +338,9 @@ export default function Home() {
 
       {/* ════════════════════ GLOBAL PRESENCE ════════════════════ */}
       <section className="py-24 lg:py-32 bg-ink text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image src={images.globalMap} alt="" fill className="object-cover" />
+        <div className="absolute inset-0">
+          <Image src={images.globalMap} alt="" fill className="object-cover opacity-15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/70" />
         </div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
