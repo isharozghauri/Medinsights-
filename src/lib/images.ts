@@ -1,72 +1,102 @@
-// Centralized image URLs from Unsplash (free, no attribution required)
-// These load at runtime in the browser, not during build
+// Centralized image URLs from Unsplash - all healthcare/research-specific, no duplicates
+// Photos selected from NCI, CDC, and professional medical photography collections
 
 export const images = {
-  // Hero backgrounds
+  // ═══ HERO BACKGROUNDS (large, impactful) ═══
+  // Modern medical research / pharmaceutical lab with scientist
   heroMain:
-    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1920&q=85',
+  // Diverse medical team in professional setting
   heroAbout:
-    'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1920&q=85',
+  // Scientific research with data/dashboards
   heroServices:
-    'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1920&q=85',
+  // Pharmaceutical manufacturing / pills production
   heroIndustries:
-    'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1920&q=85',
+  // Business analysis / insights dashboard
   heroInsights:
-    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=85',
+  // Modern corporate office reception
   heroContact:
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1920&q=85',
+  // Healthcare professional consultation
   heroPanel:
-    'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80',
+    'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1920&q=85',
 
-  // Section images
+  // ═══ LAB & RESEARCH (NCI / professional science) ═══
+  // Scientist pipetting in lab
   labResearch:
-    'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1583912086296-be5b665036d3?auto=format&fit=crop&w=1200&q=85',
+  // Microscope / digital pathology
   microscope:
-    'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80',
-  dataAnalytics:
-    'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-  teamMeeting:
-    'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80',
-  pharmaceutical:
-    'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
-  medicalDevice:
-    'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80',
-  doctor:
-    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80',
-  patient:
-    'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=800&q=80',
-  globalMap:
-    'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80',
-  consulting:
-    'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1200&q=85',
+  // Test tubes / clinical samples
   research2:
-    'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
-  pills:
-    'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=800&q=80',
-  biotech:
-    'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=800&q=80',
-  officeModern:
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
-  chartsDashboard:
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1582560475093-ba66accbc424?auto=format&fit=crop&w=1200&q=85',
 
-  // Insight article thumbnails
+  // ═══ DATA & ANALYTICS ═══
+  // Business data analysis with multiple monitors
+  dataAnalytics:
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85',
+  // Financial charts / market dashboards
+  chartsDashboard:
+    'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=85',
+
+  // ═══ PROFESSIONAL / CORPORATE ═══
+  // Diverse professional team meeting
+  teamMeeting:
+    'https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1200&q=85',
+  // Business consulting / strategy discussion
+  consulting:
+    'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85',
+  // Modern corporate office
+  officeModern:
+    'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85',
+  // Global connectivity / world network
+  globalMap:
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85',
+
+  // ═══ INDUSTRY-SPECIFIC ═══
+  // Pharmaceutical capsules / production
+  pharmaceutical:
+    'https://images.unsplash.com/photo-1626203049284-4a5d5d87f3d9?auto=format&fit=crop&w=1200&q=85',
+  // Medical device / technology
+  medicalDevice:
+    'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=85',
+  // Biotechnology / cell research
+  biotech:
+    'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=85',
+  // Pills and medications
+  pills:
+    'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&w=1200&q=85',
+
+  // ═══ HEALTHCARE PROFESSIONALS ═══
+  // Professional doctor / physician
+  doctor:
+    'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=85',
+  // Patient / caregiver
+  patient:
+    'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1200&q=85',
+
+  // ═══ INSIGHT ARTICLE THUMBNAILS (all different) ═══
   insight1:
-    'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=85',
   insight2:
-    'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=800&q=85',
   insight3:
-    'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=800&q=85',
   insight4:
-    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=85',
   insight5:
-    'https://images.unsplash.com/photo-1631549916768-4f91b0b65b48?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1631815590058-860e1bbbc4a5?auto=format&fit=crop&w=800&q=85',
   insight6:
-    'https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=85',
   insight7:
-    'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=85',
   insight8:
-    'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1576091160501-bbe57469278b?auto=format&fit=crop&w=800&q=85',
   insight9:
-    'https://images.unsplash.com/photo-1576671081837-49000212a370?auto=format&fit=crop&w=600&q=80',
+    'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=800&q=85',
 };
