@@ -141,7 +141,7 @@ export default function Header() {
                     className={`nav-link inline-flex items-center gap-1 px-4 py-2 text-[0.8125rem] font-medium tracking-wide transition-colors rounded-lg ${
                       isActive(item.href)
                         ? showTransparent
-                          ? 'text-accent'
+                          ? 'text-primary'
                           : scrolled
                           ? 'text-primary'
                           : 'text-accent'
@@ -202,7 +202,7 @@ export default function Header() {
                   className={`nav-link px-4 py-2 text-[0.8125rem] font-medium tracking-wide transition-colors rounded-lg ${
                     isActive(item.href)
                       ? showTransparent
-                        ? 'text-accent'
+                        ? 'text-primary'
                         : scrolled
                         ? 'text-primary'
                         : 'text-accent'
@@ -220,7 +220,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="ml-5 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-accent text-white text-sm font-semibold hover:bg-accent-dark transition-all duration-300 shadow-[0_4px_16px_rgba(0,211,216,0.3)] hover:shadow-[0_8px_30px_rgba(0,211,216,0.4)] hover:-translate-y-px"
+              className="ml-5 inline-flex items-center gap-2 px-6 py-2.5 rounded-sm bg-primary text-white text-sm font-semibold hover:bg-primary-light transition-all duration-300 shadow-[0_4px_16px_rgba(11,31,74,0.25)] hover:shadow-[0_8px_30px_rgba(11,31,74,0.35)] hover:-translate-y-px"
             >
               Get Started
               <ArrowRight className="w-4 h-4" />

@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <>
       {/* ════════════════════ HERO - Editorial ════════════════════ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-navy">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-ink">
         <div className="absolute inset-0">
           <Image
             src={images.heroMain}
@@ -99,7 +99,7 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-32 w-full">
           <div className="max-w-3xl">
-            <div className="eyebrow text-accent mb-8">Global Healthcare Intelligence</div>
+            <div className="eyebrow text-white/60 mb-8">Global Healthcare Intelligence</div>
             <h1 className="text-white">
               Research that shapes the future of healthcare.
             </h1>
@@ -127,24 +127,24 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ INTRO + STATS ════════════════════ */}
-      <section className="py-24 lg:py-32 border-b border-slate-100">
+      <section className="py-24 lg:py-32 border-b border-stone-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5">
               <div className="eyebrow">About Medinsights+</div>
               <div className="section-divider mt-4" />
-              <h2 className="mt-6 text-slate-900">
+              <h2 className="mt-6 text-ink">
                 A research partner to healthcare&apos;s most ambitious organizations.
               </h2>
             </div>
             <div className="lg:col-span-7">
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-stone-600 leading-relaxed">
                 For over fifteen years, we have been the research partner of choice for
                 healthcare organizations seeking clarity in complex, rapidly evolving markets.
                 Our work combines deep therapeutic expertise, rigorous methodology, and global
                 reach to produce intelligence that our clients rely on to make critical decisions.
               </p>
-              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+              <p className="mt-6 text-lg text-stone-600 leading-relaxed">
                 We serve over 200 pharmaceutical, biotechnology, medical technology, and consulting
                 organizations across every major global market, from established therapeutic areas
                 to the most advanced gene and cell therapies.
@@ -156,12 +156,12 @@ export default function Home() {
           </div>
 
           {/* Editorial stats bar */}
-          <div className="mt-24 pt-16 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+          <div className="mt-24 pt-16 border-t border-stone-200 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, i) => (
               <AnimatedSection key={i} delay={i * 80}>
                 <div>
                   <div className="text-4xl lg:text-5xl font-serif text-primary" style={{ fontWeight: 400 }}>{stat.value}</div>
-                  <div className="mt-3 text-sm text-slate-500 max-w-[180px] leading-snug">{stat.label}</div>
+                  <div className="mt-3 text-sm text-stone-500 max-w-[180px] leading-snug">{stat.label}</div>
                 </div>
               </AnimatedSection>
             ))}
@@ -170,16 +170,16 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ SERVICES - Editorial Numbered List ════════════════════ */}
-      <section className="py-24 lg:py-32 bg-slate-50">
+      <section className="py-24 lg:py-32 bg-paper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
             <div className="lg:col-span-5">
               <div className="eyebrow">Our Capabilities</div>
               <div className="section-divider mt-4" />
-              <h2 className="mt-6 text-slate-900">Four practice areas. One integrated platform.</h2>
+              <h2 className="mt-6 text-ink">Four practice areas. One integrated platform.</h2>
             </div>
             <div className="lg:col-span-6 lg:col-start-7">
-              <p className="text-lg text-slate-600 leading-relaxed">
+              <p className="text-lg text-stone-600 leading-relaxed">
                 Each of our four practice areas is designed to address a distinct dimension of
                 market intelligence. Together, they form a comprehensive ecosystem that delivers
                 the breadth and depth required for today&apos;s most complex healthcare decisions.
@@ -187,16 +187,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-0 border-t border-slate-200">
+          <div className="space-y-0 border-t border-stone-300">
             {services.map((service, i) => (
               <AnimatedSection key={i} delay={i * 80}>
-                <Link href={service.href} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 py-10 lg:py-12 border-b border-slate-200 hover:bg-white transition-colors duration-500 px-4 -mx-4">
+                <Link href={service.href} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 py-10 lg:py-12 border-b border-stone-300 hover:bg-white transition-colors duration-500 px-4 -mx-4">
                   <div className="lg:col-span-1">
-                    <div className="text-sm font-mono text-accent tracking-widest">{service.number}</div>
+                    <div className="text-sm font-mono text-stone-400 tracking-widest">{service.number}</div>
                   </div>
                   <div className="lg:col-span-5">
-                    <h3 className="text-slate-900 group-hover:text-primary transition-colors">{service.title}</h3>
-                    <p className="mt-3 text-slate-600 leading-relaxed">{service.description}</p>
+                    <h3 className="text-ink group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="mt-3 text-stone-600 leading-relaxed">{service.description}</p>
                     <div className="mt-6 inline-flex items-center gap-2 text-sm text-primary font-semibold group-hover:gap-3 transition-all">
                       Explore practice <ArrowRight className="w-4 h-4" />
                     </div>
@@ -237,7 +237,7 @@ export default function Home() {
             <AnimatedSection delay={150}>
               <div className="eyebrow">Why Medinsights+</div>
               <div className="section-divider mt-4" />
-              <h2 className="mt-6 text-slate-900">Expertise delivered with rigor, speed, and discretion.</h2>
+              <h2 className="mt-6 text-ink">Expertise delivered with rigor, speed, and discretion.</h2>
 
               <div className="mt-12 space-y-8">
                 {[
@@ -258,13 +258,13 @@ export default function Home() {
                     description: 'GDPR, HIPAA, and ISO 27001 compliant operations protect your most sensitive research.',
                   },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-5 pb-8 border-b border-slate-100 last:border-0 last:pb-0">
-                    <div className="shrink-0 text-sm font-mono text-accent tracking-widest pt-1">
+                  <div key={i} className="flex gap-5 pb-8 border-b border-stone-200 last:border-0 last:pb-0">
+                    <div className="shrink-0 text-sm font-mono text-stone-400 tracking-widest pt-1">
                       0{i + 1}
                     </div>
                     <div>
-                      <h4 className="text-slate-900 text-base font-semibold">{item.title}</h4>
-                      <p className="mt-2 text-slate-600 leading-relaxed text-[15px]">{item.description}</p>
+                      <h4 className="text-ink text-base font-semibold">{item.title}</h4>
+                      <p className="mt-2 text-stone-600 leading-relaxed text-[15px]">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -275,13 +275,13 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ INDUSTRIES - Minimal Grid ════════════════════ */}
-      <section className="py-24 lg:py-32 bg-slate-50">
+      <section className="py-24 lg:py-32 bg-paper">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
             <div className="lg:col-span-6">
               <div className="eyebrow">Industries</div>
               <div className="section-divider mt-4" />
-              <h2 className="mt-6 text-slate-900">Specialized intelligence for every healthcare stakeholder.</h2>
+              <h2 className="mt-6 text-ink">Specialized intelligence for every healthcare stakeholder.</h2>
             </div>
           </div>
 
@@ -321,13 +321,13 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <AnimatedSection key={i} delay={i * 120}>
                 <div>
-                  <div className="text-6xl text-accent font-serif leading-none mb-4">&ldquo;</div>
-                  <blockquote className="text-xl lg:text-2xl text-slate-800 leading-relaxed font-serif font-normal italic">
+                  <div className="text-6xl text-primary font-serif leading-none mb-4">&ldquo;</div>
+                  <blockquote className="text-xl lg:text-2xl text-ink leading-relaxed font-serif font-normal italic">
                     {t.quote}
                   </blockquote>
-                  <div className="mt-8 pt-6 border-t border-slate-200">
-                    <div className="font-semibold text-slate-900">{t.author}</div>
-                    <div className="text-sm text-slate-500 mt-1">{t.company}</div>
+                  <div className="mt-8 pt-6 border-t border-stone-300">
+                    <div className="font-semibold text-ink">{t.author}</div>
+                    <div className="text-sm text-stone-500 mt-1">{t.company}</div>
                   </div>
                 </div>
               </AnimatedSection>
@@ -337,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ GLOBAL PRESENCE ════════════════════ */}
-      <section className="py-24 lg:py-32 bg-navy text-white relative overflow-hidden">
+      <section className="py-24 lg:py-32 bg-ink text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image src={images.globalMap} alt="" fill className="object-cover" />
         </div>
@@ -372,7 +372,7 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ JOIN PANEL CTA ════════════════════ */}
-      <section className="py-24 lg:py-32 border-b border-slate-100">
+      <section className="py-24 lg:py-32 border-b border-stone-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -381,14 +381,14 @@ export default function Home() {
             <div>
               <div className="eyebrow">For Participants</div>
               <div className="section-divider mt-4" />
-              <h2 className="mt-6 text-slate-900">Join our global research panel.</h2>
-              <p className="mt-6 text-lg text-slate-600 leading-relaxed">
+              <h2 className="mt-6 text-ink">Join our global research panel.</h2>
+              <p className="mt-6 text-lg text-stone-600 leading-relaxed">
                 Healthcare professionals, patients, and caregivers worldwide contribute to
                 our research programs. Share your expertise, participate in meaningful studies,
                 and receive competitive compensation for your time.
               </p>
 
-              <div className="mt-8 grid grid-cols-3 gap-6 border-t border-slate-100 pt-8">
+              <div className="mt-8 grid grid-cols-3 gap-6 border-t border-stone-200 pt-8">
                 {[
                   { count: '5,000+', label: 'Physicians' },
                   { count: '3,500+', label: 'Patients' },
@@ -396,7 +396,7 @@ export default function Home() {
                 ].map((item, i) => (
                   <div key={i}>
                     <div className="text-2xl font-serif text-primary" style={{ fontWeight: 400 }}>{item.count}</div>
-                    <div className="text-xs text-slate-500 mt-1">{item.label}</div>
+                    <div className="text-xs text-stone-500 mt-1">{item.label}</div>
                   </div>
                 ))}
               </div>
@@ -414,10 +414,10 @@ export default function Home() {
         <div className="mx-auto max-w-5xl px-6 lg:px-8 text-center">
           <div className="eyebrow mb-4">Let&apos;s Connect</div>
           <div className="section-divider mx-auto" />
-          <h2 className="mt-6 text-slate-900">
+          <h2 className="mt-6 text-ink">
             Ready to turn complex questions into confident decisions?
           </h2>
-          <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
             Connect with our team to discuss how Medinsights+ can support your most important
             healthcare market decisions.
           </p>
