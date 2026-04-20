@@ -416,6 +416,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ════════════════════ FOR RESEARCH PARTNERS ════════════════════ */}
+      <section className="py-20 lg:py-28 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <AnimatedSection>
+              <div>
+                <p className="text-accent-dark font-semibold text-sm uppercase tracking-wider mb-4">
+                  For Consulting &amp; Research Partners
+                </p>
+                <h2 className="text-primary">
+                  Built to extend your team, not compete with it.
+                </h2>
+                <p className="mt-4 text-gray-600 leading-relaxed text-lg">
+                  Leading management consulting firms, market research agencies, and CROs partner
+                  with Medinsights+ for white-label fieldwork, panel access, therapeutic expertise,
+                  and multi-country coordination — delivered seamlessly under your brand.
+                </p>
+                <div className="mt-8 grid grid-cols-3 gap-6">
+                  <div>
+                    <div className="text-2xl font-bold text-primary">10K+</div>
+                    <div className="text-sm text-gray-500 mt-1">HCPs in Panel</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-primary">30+</div>
+                    <div className="text-sm text-gray-500 mt-1">Countries</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-primary">48hrs</div>
+                    <div className="text-sm text-gray-500 mt-1">Avg. Recruitment Start</div>
+                  </div>
+                </div>
+                <Link
+                  href="/services/partner-solutions"
+                  className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:gap-3 transition-all no-underline hover:no-underline"
+                >
+                  Explore partner solutions <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={150}>
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                <Image
+                  src={images.consulting}
+                  alt="Research partnership"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* ════════════════════ GLOBAL PRESENCE + JOIN PANEL ════════════════════ */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

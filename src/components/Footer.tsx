@@ -10,6 +10,7 @@ const footerLinks = {
     { name: 'Secondary Research', href: '/services/secondary-research' },
     { name: 'Syndicated Reports', href: '/services/syndicated-reports' },
     { name: 'Consulting', href: '/services/consulting' },
+    { name: 'Partner Solutions', href: '/services/partner-solutions' },
   ],
   industries: [
     { name: 'Pharmaceuticals', href: '/industries#pharmaceuticals' },

@@ -91,6 +91,22 @@ const services = [
     color: 'from-accent to-primary',
     image: images.consulting,
   },
+  {
+    icon: Users,
+    title: 'Partner Solutions',
+    href: '/services/partner-solutions',
+    description:
+      'Consulting firms, market research agencies, and CROs partner with Medinsights+ to extend their healthcare research capabilities. We provide white-label fieldwork, KOL recruitment, panel access, multi-country coordination, and on-demand therapeutic expertise — all delivered seamlessly under your brand.',
+    highlights: [
+      'White-label primary research execution',
+      'KOL network and HCP panel access (10,000+)',
+      'On-demand therapeutic area specialists',
+      'Multi-country fieldwork coordination',
+      'Preferred partner and embedded team models',
+    ],
+    color: 'from-primary to-primary/80',
+    image: images.teamMeeting,
+  },
 ];
 
 const integrationPoints = [

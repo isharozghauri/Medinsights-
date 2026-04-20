@@ -19,6 +19,7 @@ const navigation = [
       { name: 'Secondary Research', href: '/services/secondary-research', description: 'Desk research and data analysis' },
       { name: 'Syndicated Reports', href: '/services/syndicated-reports', description: 'Market reports across therapeutic areas' },
       { name: 'Consulting', href: '/services/consulting', description: 'Strategic advisory services' },
+      { name: 'Partner Solutions', href: '/services/partner-solutions', description: 'White-label research for agencies & firms' },
     ],
   },
   { name: 'Industries', href: '/industries' },
