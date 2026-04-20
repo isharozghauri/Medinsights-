@@ -74,11 +74,25 @@ const industries = [
     image: images.biotech,
   },
   {
-    title: 'Medical Technology',
+    title: 'MedTech & Diagnostics',
     description:
-      'Device landscape analysis, adoption research, and market sizing for medtech companies.',
+      'Device landscape analysis, IVD research, and market sizing for medtech and diagnostic companies.',
     href: '/industries#medtech',
     image: images.medicalDevice,
+  },
+  {
+    title: 'Digital Health',
+    description:
+      'Adoption, reimbursement, and engagement research for digital therapeutics and health platforms.',
+    href: '/industries#digital-health',
+    image: images.dataAnalytics,
+  },
+  {
+    title: 'Healthcare Investors',
+    description:
+      'Commercial due diligence for venture capital, private equity, and institutional investors.',
+    href: '/industries#investors',
+    image: images.chartsDashboard,
   },
   {
     title: 'Research Agencies',
@@ -337,7 +351,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry, i) => (
               <AnimatedSection key={i} delay={i * 80}>
                 <Link

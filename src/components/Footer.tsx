@@ -14,7 +14,9 @@ const footerLinks = {
   industries: [
     { name: 'Pharmaceuticals', href: '/industries#pharmaceuticals' },
     { name: 'Biotechnology', href: '/industries#biotechnology' },
-    { name: 'Medical Technology', href: '/industries#medtech' },
+    { name: 'MedTech & Diagnostics', href: '/industries#medtech' },
+    { name: 'Digital Health', href: '/industries#digital-health' },
+    { name: 'Healthcare Investors', href: '/industries#investors' },
     { name: 'Research Agencies', href: '/industries#agencies' },
   ],
   company: [
