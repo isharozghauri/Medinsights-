@@ -23,6 +23,7 @@ export default function PageHero({ eyebrow, title, description, image, backLink 
     <section className="bg-white pt-32 pb-16 lg:pt-40 lg:pb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text content */}
           <div>
             {backLink && (
               <Link
@@ -47,6 +48,7 @@ export default function PageHero({ eyebrow, title, description, image, backLink 
             )}
           </div>
 
+          {/* Right: Image */}
           <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
             <Image
               src={image}
