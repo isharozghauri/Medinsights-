@@ -284,39 +284,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════ ABOUT / WHY US ════════════════════ */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      {/* ════════════════════ ABOUT / WHY US — NAVY AUTHORITY BLOCK ════════════════════ */}
+      <section className="py-20 lg:py-28 bg-primary">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Image */}
             <AnimatedSection>
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                <Image
-                  src={images.teamMeeting}
-                  alt="Medinsights+ team meeting"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </AnimatedSection>
-
-            {/* Right: Text */}
-            <AnimatedSection delay={150}>
               <div>
-                <p className="text-accent-dark font-semibold text-sm uppercase tracking-wider mb-4">
-                  About Us
+                <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
+                  Why Medinsights+
                 </p>
-                <h2 className="text-primary">Why Medinsights+</h2>
+                <h2 className="text-white">The research partner global healthcare companies trust.</h2>
+                <p className="mt-6 text-white/70 text-lg leading-relaxed">
+                  For over fifteen years, we have combined deep therapeutic expertise
+                  with rigorous methodology to deliver intelligence that directly
+                  impacts our clients&apos; most critical business decisions.
+                </p>
 
-                <div className="mt-8 space-y-6">
+                <div className="mt-10 space-y-6">
                   {whyUsPoints.map((point, i) => (
                     <div key={i} className="flex gap-4">
                       <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="text-primary font-semibold text-base">
+                        <h4 className="text-white font-semibold text-base">
                           {point.title}
                         </h4>
-                        <p className="mt-1 text-gray-600 text-[0.9375rem] leading-relaxed">
+                        <p className="mt-1 text-white/60 text-[0.9375rem] leading-relaxed">
                           {point.description}
                         </p>
                       </div>
@@ -326,11 +318,22 @@ export default function Home() {
 
                 <Link
                   href="/about"
-                  className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:gap-3 transition-all no-underline hover:no-underline"
+                  className="inline-flex items-center gap-2 mt-10 text-accent font-semibold hover:gap-3 transition-all no-underline hover:no-underline"
                 >
                   Learn more about our firm{' '}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={150}>
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                <Image
+                  src={images.teamMeeting}
+                  alt="Medinsights+ team"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </AnimatedSection>
           </div>
@@ -413,21 +416,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════ JOIN PANEL CTA ════════════════════ */}
+      {/* ════════════════════ GLOBAL PRESENCE + JOIN PANEL ════════════════════ */}
       <section className="py-20 lg:py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <Globe2 className="w-10 h-10 text-accent mx-auto mb-6" />
-            <h2 className="text-primary">Join Our Global Research Panel</h2>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Healthcare professionals, patients, and caregivers worldwide
-              contribute to our research programs. Share your expertise and
-              receive competitive compensation for your time.
-            </p>
-            <Link href="/join-panel" className="btn-primary mt-8">
-              Join the Panel <ArrowRight className="w-4 h-4" />
-            </Link>
-          </AnimatedSection>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Global Presence */}
+            <AnimatedSection>
+              <div>
+                <p className="text-accent-dark font-semibold text-sm uppercase tracking-wider mb-4">
+                  Global Presence
+                </p>
+                <h2 className="text-primary">Research coverage across key markets worldwide.</h2>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  With offices and research capabilities across the Americas, Europe, and Asia-Pacific,
+                  we deliver localized market intelligence with a global perspective.
+                </p>
+                <div className="mt-8 grid grid-cols-3 gap-6">
+                  {[
+                    { region: 'Americas', cities: 'New York · Boston · Toronto' },
+                    { region: 'Europe', cities: 'London · Frankfurt · Paris' },
+                    { region: 'Asia-Pacific', cities: 'Singapore · Tokyo · Sydney' },
+                  ].map((r) => (
+                    <div key={r.region}>
+                      <div className="text-primary text-xs font-bold uppercase tracking-wider">{r.region}</div>
+                      <div className="mt-2 text-gray-500 text-sm leading-relaxed">{r.cities}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Join Panel */}
+            <AnimatedSection delay={150}>
+              <div className="bg-gray-50 rounded-lg p-10 border border-gray-200 h-full flex flex-col justify-center">
+                <Globe2 className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-primary text-2xl">Join Our Global Research Panel</h3>
+                <p className="mt-3 text-gray-600 leading-relaxed">
+                  Healthcare professionals, patients, and caregivers contribute to our research
+                  worldwide. Share your expertise and receive competitive compensation.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-6 text-sm text-primary font-bold">
+                  <div>5,000+ <span className="text-gray-500 font-normal">Physicians</span></div>
+                  <div>3,500+ <span className="text-gray-500 font-normal">Patients</span></div>
+                  <div>1,500+ <span className="text-gray-500 font-normal">Caregivers</span></div>
+                </div>
+                <Link href="/join-panel" className="btn-primary mt-8 self-start">
+                  Join the Panel <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
     </>
