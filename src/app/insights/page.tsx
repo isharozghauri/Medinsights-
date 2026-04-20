@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Clock, Tag, ArrowUpRight } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -91,27 +92,12 @@ const categories = [
 export default function InsightsPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.heroInsights} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Insights & Resources</p>
-            <h1 className="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
-              Healthcare Market{' '}
-              <span className="text-accent">Intelligence & Analysis</span>
-            </h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">
-              Expert perspectives on the trends, data, and dynamics shaping healthcare
-              markets across North America and Europe.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Insights & Resources"
+        title="Healthcare market intelligence & analysis."
+        description="Expert perspectives on the trends, data, and dynamics shaping healthcare markets worldwide."
+        image={images.heroInsights}
+      />
 
       {/* Category Filter */}
       <section className="border-b border-slate-200 sticky top-20 bg-white z-30">

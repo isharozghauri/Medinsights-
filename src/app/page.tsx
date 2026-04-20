@@ -84,45 +84,48 @@ const testimonials = [
 export default function Home() {
   return (
     <>
-      {/* ════════════════════ HERO - Editorial ════════════════════ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-ink">
-        <div className="absolute inset-0">
-          <Image
-            src={images.heroMain}
-            alt=""
-            fill
-            className="object-cover opacity-30"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/95 to-primary/80" />
-        </div>
+      {/* ════════════════════ HERO - Split column ════════════════════ */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 w-full min-h-[90vh]">
+          {/* Left: solid ink with text */}
+          <div className="lg:col-span-7 bg-ink text-white flex items-center py-24 lg:py-32 px-6 lg:px-16 xl:px-24">
+            <div className="max-w-xl">
+              <div className="eyebrow text-white/50 mb-8">Global Healthcare Intelligence</div>
+              <h1 className="text-white">
+                Research that shapes the future of healthcare.
+              </h1>
+              <p className="mt-8 text-lg text-white/65 leading-relaxed font-light">
+                Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
+                leaders worldwide to deliver research and intelligence that drives confident,
+                evidence-based decisions.
+              </p>
 
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-32 w-full">
-          <div className="max-w-3xl">
-            <div className="eyebrow text-white/60 mb-8">Global Healthcare Intelligence</div>
-            <h1 className="text-white">
-              Research that shapes the future of healthcare.
-            </h1>
-            <p className="mt-8 text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed font-light">
-              Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
-              leaders worldwide to deliver research and intelligence that drives confident,
-              evidence-based decisions.
-            </p>
+              <div className="mt-12 flex flex-col sm:flex-row gap-4">
+                <Link href="/contact" className="btn-primary">
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link href="/services" className="btn-secondary">
+                  Explore Our Capabilities
+                </Link>
+              </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-primary">
-                Start a Conversation <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/services" className="btn-secondary">
-                Explore Our Capabilities
-              </Link>
+              <div className="mt-16 text-white/30 text-xs font-mono tracking-widest">
+                EST. 2009 · GLOBAL OPERATIONS
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Corner mark */}
-        <div className="absolute bottom-8 right-8 text-white/30 text-xs font-mono tracking-widest hidden lg:block">
-          EST. 2009 · GLOBAL
+          {/* Right: clean image */}
+          <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0">
+            <Image
+              src={images.heroMain}
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/30 via-transparent to-transparent lg:block hidden" />
+          </div>
         </div>
       </section>
 

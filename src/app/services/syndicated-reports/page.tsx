@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, CheckCircle2, FileText, Search, BarChart3, Briefcase, BookOpen, Layers, TrendingUp, Calendar, Globe2 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -38,19 +39,13 @@ const subscriptionModels = [
 export default function SyndicatedReportsPage() {
   return (
     <>
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.chartsDashboard} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Link href="/services" className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 hover:text-accent-light transition-colors"><ArrowRight className="w-4 h-4 rotate-180" /> All Services</Link>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Syndicated Research <span className="text-accent">Reports</span></h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">Access deep market intelligence through our library of multi-client research reports. Our syndicated program covers high-value therapeutic areas with regularly updated landscape analyses, pipeline monitors, and market access digests that keep your team informed and competitive.</p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Service"
+        backLink={{ href: '/services', label: 'All Services' }}
+        title="Syndicated research reports."
+        description="Multi-client research reports covering high-value therapeutic areas with regularly updated landscape analyses, pipeline monitors, and market access digests."
+        image={images.chartsDashboard}
+      />
 
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

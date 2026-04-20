@@ -12,6 +12,7 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 import { images } from '@/lib/images';
 
 const offices = [
@@ -63,27 +64,12 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.heroContact} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Contact Us</p>
-            <h1 className="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
-              Let&apos;s Discuss Your{' '}
-              <span className="text-accent">Research Needs</span>
-            </h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">
-              Whether you need a custom research proposal, want to explore our syndicated
-              reports, or have a strategic question — we&apos;re here to help.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact Us"
+        title="Let's discuss your research needs."
+        description="Whether you need a custom research proposal, want to explore our syndicated reports, or have a strategic question — we're here to help."
+        image={images.heroContact}
+      />
 
       {/* Contact Form + Info */}
       <section className="py-24 lg:py-32">

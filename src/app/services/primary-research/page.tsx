@@ -20,6 +20,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -127,26 +128,13 @@ const deliverables = [
 export default function PrimaryResearchPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.doctor} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Link href="/services" className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 hover:text-accent-light transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" /> All Services
-            </Link>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Primary Market <span className="text-accent">Research</span>
-            </h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">
-              Gain first-hand intelligence from the healthcare professionals, patients, and payers who shape your market. Our primary research practice combines rigorous qualitative and quantitative methodologies with deep therapeutic expertise to uncover the attitudes, behaviors, and unmet needs that drive prescribing decisions and market access outcomes globally.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Service"
+        backLink={{ href: '/services', label: 'All Services' }}
+        title="Primary market research."
+        description="First-hand intelligence from healthcare professionals, patients, and payers through rigorous qualitative and quantitative methodologies with deep therapeutic expertise."
+        image={images.doctor}
+      />
 
       {/* Overview */}
       <section className="py-24 lg:py-32">

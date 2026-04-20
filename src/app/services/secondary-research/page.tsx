@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ArrowUpRight, CheckCircle2, BarChart3, FileText, Search, Briefcase, Database, LineChart, Shield, Globe2, TrendingUp } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -57,23 +58,13 @@ const deliverables = [
 export default function SecondaryResearchPage() {
   return (
     <>
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.dataAnalytics} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Link href="/services" className="inline-flex items-center gap-2 text-accent text-sm font-medium mb-4 hover:text-accent-light transition-colors">
-              <ArrowRight className="w-4 h-4 rotate-180" /> All Services
-            </Link>
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">Secondary & Desk <span className="text-accent">Research</span></h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">
-              Transform published data into strategic intelligence. We systematically analyze clinical, regulatory, commercial, and epidemiological data sources to build comprehensive market landscapes and competitive intelligence frameworks that inform critical healthcare business decisions.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Service"
+        backLink={{ href: '/services', label: 'All Services' }}
+        title="Secondary & desk research."
+        description="Transform published data into strategic intelligence. We analyze clinical, regulatory, commercial, and epidemiological data to build comprehensive market landscapes."
+        image={images.dataAnalytics}
+      />
 
       <section className="py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

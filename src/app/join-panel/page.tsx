@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Stethoscope, Heart, Users, ArrowRight, ArrowLeft, CheckCircle2, Shield, DollarSign, Clock, Globe2, Upload, ChevronRight } from 'lucide-react';
 import { images } from '@/lib/images';
+import PageHero from '@/components/PageHero';
 import AnimatedSection from '@/components/AnimatedSection';
 
 type PanelType = 'hcp' | 'patient' | 'caregiver' | '';
@@ -102,20 +103,12 @@ export default function JoinPanelPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.heroPanel} alt="" fill className="object-cover opacity-30" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Join Our Panel</p>
-            <h1 className="mt-3 text-4xl sm:text-5xl font-bold leading-tight">Share Your Expertise. <span className="text-accent">Shape Healthcare.</span></h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">Join our global panel of healthcare professionals, patients, and caregivers. Participate in meaningful market research studies, share your insights, and receive competitive compensation for your time.</p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Join Our Panel"
+        title="Share your expertise. Shape healthcare."
+        description="Join our global panel of healthcare professionals, patients, and caregivers. Participate in meaningful market research studies, share your insights, and receive competitive compensation for your time."
+        image={images.heroPanel}
+      />
 
       {/* Benefits */}
       <section className="py-20">

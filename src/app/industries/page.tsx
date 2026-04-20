@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
+import PageHero from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Industries',
@@ -149,27 +150,12 @@ const industries = [
 export default function IndustriesPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-ink text-white pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.heroIndustries} alt="" fill className="object-cover opacity-30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-primary/90 to-primary/80" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">Industries We Serve</p>
-            <h1 className="mt-3 text-4xl sm:text-5xl font-bold leading-tight">
-              Specialized Intelligence for{' '}
-              <span className="text-accent">Every Healthcare Stakeholder</span>
-            </h1>
-            <p className="mt-6 text-xl text-white/70 leading-relaxed">
-              We understand the unique challenges and decision-making processes
-              across the healthcare value chain — and tailor our research accordingly.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Industries We Serve"
+        title="Specialized intelligence for every healthcare stakeholder."
+        description="We understand the unique challenges and decision-making processes across the healthcare value chain — and tailor our research accordingly."
+        image={images.heroIndustries}
+      />
 
       {/* Industry Sections */}
       {industries.map((industry, sectionIndex) => (
