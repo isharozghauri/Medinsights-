@@ -22,6 +22,7 @@ const footerLinks = {
   ],
   company: [
     { name: 'About Us', href: '/about' },
+    { name: 'Methodology', href: '/methodology' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Insights', href: '/insights' },
     { name: 'Join Our Panel', href: '/join-panel' },

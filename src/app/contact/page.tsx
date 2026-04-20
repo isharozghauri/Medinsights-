@@ -54,11 +54,26 @@ const inquiryTypes = [
   'General Inquiry',
 ];
 
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT || '';
+
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitting(true);
+
+    if (FORMSPREE_ID) {
+      const formData = new FormData(e.currentTarget);
+      await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+    }
+
+    setSubmitting(false);
     setFormSubmitted(true);
   };
 
@@ -105,6 +120,7 @@ export default function ContactPage() {
                             type="text"
                             required
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="first_name"
                             placeholder="John"
                           />
                         </div>
@@ -116,6 +132,7 @@ export default function ContactPage() {
                             type="text"
                             required
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="last_name"
                             placeholder="Smith"
                           />
                         </div>
@@ -130,6 +147,7 @@ export default function ContactPage() {
                             type="email"
                             required
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="email"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -140,6 +158,7 @@ export default function ContactPage() {
                           <input
                             type="tel"
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="phone"
                             placeholder="+1 (555) 000-0000"
                           />
                         </div>
@@ -154,6 +173,7 @@ export default function ContactPage() {
                             type="text"
                             required
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="company"
                             placeholder="Company Name"
                           />
                         </div>
@@ -164,6 +184,7 @@ export default function ContactPage() {
                           <input
                             type="text"
                             className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors"
+                            name="job_title"
                             placeholder="VP of Strategy"
                           />
                         </div>
@@ -174,6 +195,7 @@ export default function ContactPage() {
                           Inquiry Type *
                         </label>
                         <select
+                          name="inquiry_type"
                           required
                           className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors text-slate-700"
                         >
@@ -191,6 +213,7 @@ export default function ContactPage() {
                           Message *
                         </label>
                         <textarea
+                          name="message"
                           required
                           rows={5}
                           className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-colors resize-none"
@@ -200,9 +223,10 @@ export default function ContactPage() {
 
                       <button
                         type="submit"
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-accent text-white font-semibold hover:bg-accent-dark transition-all shadow-lg shadow-accent/25"
+                        disabled={submitting}
+                        className="w-full sm:w-auto btn-primary px-8 py-4 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        Send Message
+                        {submitting ? 'Sending...' : 'Send Message'}
                         <Send className="w-4 h-4" />
                       </button>
                     </form>
