@@ -20,7 +20,7 @@ import { images } from '@/lib/images';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about Medinsights+ — a leading healthcare market research firm delivering actionable intelligence to pharmaceutical, biotech, and medtech companies across North America and Europe.',
+    'Learn about Medinsights+ — a leading global healthcare market research firm delivering actionable intelligence to pharmaceutical, biotech, medtech, and consulting companies worldwide.',
 };
 
 const values = [
@@ -116,7 +116,7 @@ export default function AboutPage() {
                     companies entering new markets.
                   </p>
                   <p>
-                    Today, we serve over 200 clients across North America and Europe, combining
+                    Today, we serve over 200 clients worldwide, combining
                     deep therapeutic expertise with innovative research methodologies to deliver
                     insights that matter.
                   </p>
@@ -197,7 +197,7 @@ export default function AboutPage() {
                 <p className="mt-4 text-slate-600 leading-relaxed">
                   To empower healthcare organizations with actionable, high-quality market
                   intelligence that drives better decisions, accelerates market access, and
-                  ultimately improves patient outcomes across North America and Europe.
+                  ultimately improves patient outcomes in healthcare systems worldwide.
                 </p>
               </div>
             </AnimatedSection>
@@ -398,7 +398,7 @@ export default function AboutPage() {
                 </h2>
                 <p className="mt-6 text-slate-600 leading-relaxed">
                   With offices in New York, London, and Frankfurt, Medinsights+ provides on-the-ground
-                  expertise across North America and Europe. Our global KOL network of 10,000+
+                  expertise across the Americas, Europe, and Asia-Pacific. Our global KOL network of 10,000+
                   healthcare professionals ensures rapid access to critical insights in any market.
                 </p>
                 <div className="mt-8 grid grid-cols-3 gap-6">

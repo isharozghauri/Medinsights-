@@ -229,6 +229,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ════════════════════ TRUST BAR ════════════════════ */}
+      <section className="py-14 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <p className="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-10">
+              Trusted by leading healthcare organizations worldwide
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+              {[
+                'Top-10 Pharma',
+                'Fortune 500 MedTech',
+                'Global Biotech',
+                'Leading Consulting',
+                'Top PE Firm',
+                'MR Agencies',
+              ].map((client, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-center h-12 px-4 rounded-md border border-gray-200 bg-white text-gray-400 text-xs font-bold uppercase tracking-wider text-center"
+                >
+                  {client}
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-center text-xs text-gray-400 italic">
+              Client identities protected by confidentiality agreements
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* ════════════════════ SERVICES ════════════════════ */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
