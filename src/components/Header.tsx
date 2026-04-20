@@ -140,7 +140,7 @@ export default function Header() {
 
             <Link
               href="/contact"
-              className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-primary text-white text-sm font-semibold hover:bg-primary-light hover:no-underline transition-all duration-200 hover:-translate-y-px"
+              className="ml-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-accent text-white text-sm font-semibold hover:bg-accent-dark hover:no-underline transition-all duration-200 hover:-translate-y-px"
             >
               Get Started <ArrowRight className="w-4 h-4" />
             </Link>
@@ -199,7 +199,7 @@ export default function Header() {
             ))}
             <Link
               href="/contact"
-              className="block mt-4 text-center px-5 py-3 rounded-md bg-primary text-white text-sm font-semibold hover:no-underline"
+              className="block mt-4 text-center px-5 py-3 rounded-md bg-accent text-white text-sm font-semibold hover:no-underline"
             >
               Get Started
             </Link>
