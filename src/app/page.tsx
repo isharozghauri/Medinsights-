@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   ArrowRight,
-  ArrowUpRight,
   Search,
   BarChart3,
   FileText,
@@ -12,6 +11,8 @@ import {
 } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import { images } from '@/lib/images';
+
+/* ── Data ──────────────────────────────────────────────────────────── */
 
 const services = [
   {
@@ -60,25 +61,29 @@ const stats = [
 const industries = [
   {
     title: 'Pharmaceuticals',
-    description: 'Market access, competitive intelligence, and commercial strategy for global pharma leaders.',
+    description:
+      'Market access, competitive intelligence, and commercial strategy for global pharma leaders.',
     href: '/industries#pharmaceuticals',
     image: images.pharmaceutical,
   },
   {
     title: 'Biotechnology',
-    description: 'Pipeline assessment, KOL mapping, and launch readiness for emerging biotech innovators.',
+    description:
+      'Pipeline assessment, KOL mapping, and launch readiness for emerging biotech innovators.',
     href: '/industries#biotechnology',
     image: images.biotech,
   },
   {
     title: 'Medical Technology',
-    description: 'Device landscape analysis, adoption research, and market sizing for medtech companies.',
+    description:
+      'Device landscape analysis, adoption research, and market sizing for medtech companies.',
     href: '/industries#medtech',
     image: images.medicalDevice,
   },
   {
     title: 'Research Agencies',
-    description: 'White-label research support and panel access for consulting and research firms.',
+    description:
+      'White-label research support and panel access for consulting and research firms.',
     href: '/industries#agencies',
     image: images.teamMeeting,
   },
@@ -108,35 +113,41 @@ const testimonials = [
 const whyUsPoints = [
   {
     title: 'Therapeutic Depth Across 50+ Areas',
-    description: 'Specialized analysts with advanced degrees in life sciences, health economics, and clinical research.',
+    description:
+      'Specialized analysts with advanced degrees in life sciences, health economics, and clinical research.',
   },
   {
     title: 'Global Reach, Local Insight',
-    description: 'Proprietary network of 10,000+ healthcare professionals across every major global market.',
+    description:
+      'Proprietary network of 10,000+ healthcare professionals across every major global market.',
   },
   {
     title: 'Rigorous Proprietary Methodology',
-    description: 'Every engagement follows our quality framework for accurate, reliable, and actionable intelligence.',
+    description:
+      'Every engagement follows our quality framework for accurate, reliable, and actionable intelligence.',
   },
   {
     title: 'Enterprise-Grade Data Security',
-    description: 'GDPR, HIPAA, and ISO 27001 compliant operations protect your most sensitive research.',
+    description:
+      'GDPR, HIPAA, and ISO 27001 compliant operations protect your most sensitive research.',
   },
 ];
+
+/* ── Page ──────────────────────────────────────────────────────────── */
 
 export default function Home() {
   return (
     <>
       {/* ════════════════════ HERO ════════════════════ */}
       <section className="relative bg-white pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-        {/* Cyan arc decoration - top left */}
+        {/* Cyan arc decoration -- top left */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="absolute -top-24 -left-24 w-64 h-64 rounded-full border-[24px] border-accent opacity-[0.15] pointer-events-none"
         />
-        {/* Navy dot grid decoration - bottom right */}
+        {/* Navy dot grid decoration -- bottom right */}
         <div
-          aria-hidden
+          aria-hidden="true"
           className="absolute bottom-12 right-8 lg:right-16 w-36 h-36 opacity-[0.12] pointer-events-none"
           style={{
             backgroundImage:
@@ -156,9 +167,9 @@ export default function Home() {
                 Research that shapes the future of healthcare.
               </h1>
               <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
-                Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
-                leaders worldwide to deliver research and intelligence that drives confident,
-                evidence-based decisions.
+                Medinsights+ partners with pharmaceutical, biotechnology, and
+                medical technology leaders worldwide to deliver research and
+                intelligence that drives confident, evidence-based decisions.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link href="/contact" className="btn-primary">
@@ -191,8 +202,12 @@ export default function Home() {
             {stats.map((stat, i) => (
               <AnimatedSection key={i} delay={i * 60}>
                 <div className="py-8 lg:py-10 px-4 text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-primary">{stat.value}</div>
-                  <div className="mt-1 text-sm text-gray-500">{stat.label}</div>
+                  <div className="text-2xl lg:text-3xl font-bold text-primary">
+                    {stat.value}
+                  </div>
+                  <div className="mt-1 text-sm text-gray-500">
+                    {stat.label}
+                  </div>
                 </div>
               </AnimatedSection>
             ))}
@@ -210,8 +225,8 @@ export default function Home() {
               </p>
               <h2 className="text-primary accent-underline">Our Services</h2>
               <p className="mt-8 text-lg text-gray-600 leading-relaxed">
-                Four integrated practice areas delivering the breadth and depth required
-                for today&apos;s most complex healthcare decisions.
+                Four integrated practice areas delivering the breadth and depth
+                required for today&apos;s most complex healthcare decisions.
               </p>
             </div>
           </AnimatedSection>
@@ -221,7 +236,10 @@ export default function Home() {
               const Icon = service.icon;
               return (
                 <AnimatedSection key={i} delay={i * 100}>
-                  <Link href={service.href} className="group card block overflow-hidden no-underline hover:no-underline">
+                  <Link
+                    href={service.href}
+                    className="group card block overflow-hidden no-underline hover:no-underline"
+                  >
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={service.image}
@@ -233,7 +251,9 @@ export default function Home() {
                     <div className="p-6">
                       <div className="flex items-center gap-3 mb-3">
                         <Icon className="w-5 h-5 text-primary" />
-                        <h3 className="text-primary text-lg">{service.title}</h3>
+                        <h3 className="text-primary text-lg">
+                          {service.title}
+                        </h3>
                       </div>
                       <p className="text-gray-600 leading-relaxed text-[0.9375rem]">
                         {service.description}
@@ -279,7 +299,9 @@ export default function Home() {
                     <div key={i} className="flex gap-4">
                       <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="text-primary font-semibold text-base">{point.title}</h4>
+                        <h4 className="text-primary font-semibold text-base">
+                          {point.title}
+                        </h4>
                         <p className="mt-1 text-gray-600 text-[0.9375rem] leading-relaxed">
                           {point.description}
                         </p>
@@ -292,7 +314,8 @@ export default function Home() {
                   href="/about"
                   className="inline-flex items-center gap-2 mt-8 text-primary font-semibold hover:gap-3 transition-all no-underline hover:no-underline"
                 >
-                  Learn more about our firm <ArrowRight className="w-4 h-4" />
+                  Learn more about our firm{' '}
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </AnimatedSection>
@@ -308,14 +331,19 @@ export default function Home() {
               <p className="text-accent-dark font-semibold text-sm uppercase tracking-wider mb-4">
                 Who We Serve
               </p>
-              <h2 className="text-primary accent-underline">Industries We Serve</h2>
+              <h2 className="text-primary accent-underline">
+                Industries We Serve
+              </h2>
             </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {industries.map((industry, i) => (
               <AnimatedSection key={i} delay={i * 80}>
-                <Link href={industry.href} className="group card block overflow-hidden no-underline hover:no-underline">
+                <Link
+                  href={industry.href}
+                  className="group card block overflow-hidden no-underline hover:no-underline"
+                >
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={industry.image}
@@ -325,7 +353,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-primary text-base">{industry.title}</h3>
+                    <h3 className="text-primary text-base">
+                      {industry.title}
+                    </h3>
                     <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                       {industry.description}
                     </p>
@@ -358,7 +388,9 @@ export default function Home() {
                   </blockquote>
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <div className="font-bold text-primary">{t.author}</div>
-                    <div className="text-sm text-gray-500 mt-1">{t.company}</div>
+                    <div className="text-sm text-gray-500 mt-1">
+                      {t.company}
+                    </div>
                   </div>
                 </div>
               </AnimatedSection>
@@ -374,9 +406,9 @@ export default function Home() {
             <Globe2 className="w-10 h-10 text-accent mx-auto mb-6" />
             <h2 className="text-primary">Join Our Global Research Panel</h2>
             <p className="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-              Healthcare professionals, patients, and caregivers worldwide contribute to
-              our research programs. Share your expertise and receive competitive compensation
-              for your time.
+              Healthcare professionals, patients, and caregivers worldwide
+              contribute to our research programs. Share your expertise and
+              receive competitive compensation for your time.
             </p>
             <Link href="/join-panel" className="btn-primary mt-8">
               Join the Panel <ArrowRight className="w-4 h-4" />
