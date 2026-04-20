@@ -84,39 +84,57 @@ const testimonials = [
 export default function Home() {
   return (
     <>
-      {/* ════════════════════ HERO - Split column ════════════════════ */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 w-full min-h-[90vh]">
-          {/* Left: solid ink with text */}
-          <div className="lg:col-span-7 bg-ink text-white flex items-center py-24 lg:py-32 px-6 lg:px-16 xl:px-24">
-            <div className="max-w-xl">
-              <div className="eyebrow text-white/50 mb-8">Global Healthcare Intelligence</div>
-              <h1 className="text-white">
-                Research that shapes the future of healthcare.
-              </h1>
-              <p className="mt-8 text-lg text-white/65 leading-relaxed font-light">
-                Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
-                leaders worldwide to deliver research and intelligence that drives confident,
-                evidence-based decisions.
-              </p>
+      {/* ════════════════════ HERO - Clean & Light ════════════════════ */}
+      <section className="relative bg-cream pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+        {/* Subtle brand pattern: navy dot grid — top right */}
+        <div
+          aria-hidden
+          className="absolute top-28 right-8 lg:right-20 w-48 h-48 opacity-[0.15] pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle, #022b87 1.5px, transparent 1.5px)',
+            backgroundSize: '16px 16px',
+          }}
+        />
+        {/* Subtle cyan arc — bottom left */}
+        <div
+          aria-hidden
+          className="absolute -bottom-32 -left-32 w-72 h-72 rounded-full border-[20px] border-accent opacity-[0.12] pointer-events-none"
+        />
 
-              <div className="mt-12 flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="btn-primary">
-                  Start a Conversation <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link href="/services" className="btn-secondary">
-                  Explore Our Capabilities
-                </Link>
-              </div>
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-8 text-center">
+          <div className="eyebrow mb-6">Global Healthcare Intelligence</div>
 
-              <div className="mt-16 text-white/30 text-xs font-mono tracking-widest">
-                EST. 2009 · GLOBAL OPERATIONS
-              </div>
-            </div>
+          <h1 className="text-ink max-w-4xl mx-auto">
+            Research that shapes the future of healthcare.
+          </h1>
+
+          <p className="mt-8 text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto">
+            Medinsights+ partners with pharmaceutical, biotechnology, and medical technology
+            leaders worldwide to deliver research and intelligence that drives confident,
+            evidence-based decisions.
+          </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-primary">
+              Start a Conversation <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center gap-2 px-8 py-[0.875rem] rounded-sm border border-stone-300 text-stone-700 font-semibold text-sm hover:border-primary hover:text-primary transition-all"
+            >
+              Explore Our Capabilities
+            </Link>
           </div>
 
-          {/* Right: clean image */}
-          <div className="lg:col-span-5 relative min-h-[400px] lg:min-h-0">
+          <div className="mt-12 flex justify-center">
+            <div className="h-[2px] w-16 bg-accent" />
+          </div>
+        </div>
+
+        {/* Framed feature image below */}
+        <div className="relative mx-auto max-w-6xl px-6 lg:px-8 mt-16">
+          <div className="relative aspect-[21/9] overflow-hidden rounded-sm">
             <Image
               src={images.heroMain}
               alt=""
@@ -124,7 +142,6 @@ export default function Home() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink/30 via-transparent to-transparent lg:block hidden" />
           </div>
         </div>
       </section>
@@ -340,20 +357,16 @@ export default function Home() {
       </section>
 
       {/* ════════════════════ GLOBAL PRESENCE ════════════════════ */}
-      <section className="py-24 lg:py-32 bg-ink text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src={images.globalMap} alt="" fill className="object-cover opacity-15" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/70" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <section className="py-24 lg:py-32 bg-paper border-t border-stone-200">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-5">
-              <div className="eyebrow text-accent">Global Reach</div>
-              <div className="h-px w-12 bg-accent mt-4" />
-              <h2 className="mt-6 text-white">Research coverage across every major healthcare market.</h2>
+              <div className="eyebrow">Global Reach</div>
+              <div className="section-divider mt-4" />
+              <h2 className="mt-6 text-ink">Research coverage across every major healthcare market.</h2>
             </div>
             <div className="lg:col-span-7">
-              <p className="text-lg text-white/70 leading-relaxed">
+              <p className="text-lg text-stone-600 leading-relaxed">
                 With offices and research capabilities spanning North America, Europe, and
                 Asia-Pacific, we provide localized market intelligence with a global perspective.
               </p>
@@ -365,8 +378,8 @@ export default function Home() {
                   { region: 'Asia-Pacific', cities: 'Singapore\nTokyo\nSydney' },
                 ].map((r) => (
                   <div key={r.region}>
-                    <div className="text-accent text-xs uppercase tracking-widest font-semibold">{r.region}</div>
-                    <div className="mt-3 text-white/80 whitespace-pre-line leading-relaxed">{r.cities}</div>
+                    <div className="text-primary text-xs uppercase tracking-widest font-semibold">{r.region}</div>
+                    <div className="mt-3 text-stone-600 whitespace-pre-line leading-relaxed">{r.cities}</div>
                   </div>
                 ))}
               </div>
