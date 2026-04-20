@@ -14,59 +14,48 @@ interface PageHeroProps {
 }
 
 /**
- * Clean, light editorial hero — no dark panels.
- * White background, subtle accent line, centered narrow content,
- * small framed image below. Brand-aligned and minimal.
+ * Clean, brand-aligned page hero.
+ * White background, left-aligned text, image on the right.
+ * No dark panels, no overlays, no decorations.
  */
 export default function PageHero({ eyebrow, title, description, image, backLink }: PageHeroProps) {
   return (
-    <section className="relative bg-cream pt-36 pb-16 lg:pt-40 lg:pb-20">
-      {/* Subtle dot grid decoration - top right */}
-      <div
-        aria-hidden
-        className="absolute top-28 right-8 lg:right-16 w-40 h-40 opacity-[0.18] pointer-events-none"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, #022b87 1.5px, transparent 1.5px)',
-          backgroundSize: '14px 14px',
-        }}
-      />
+    <section className="bg-white pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            {backLink && (
+              <Link
+                href={backLink.href}
+                className="inline-flex items-center gap-2 text-gray-500 hover:text-primary text-sm font-medium mb-6 transition-colors no-underline hover:no-underline"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+                {backLink.label}
+              </Link>
+            )}
 
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
-        {backLink && (
-          <Link
-            href={backLink.href}
-            className="inline-flex items-center gap-2 text-stone-500 hover:text-primary text-sm font-medium mb-8 transition-colors"
-          >
-            <ArrowRight className="w-4 h-4 rotate-180" /> {backLink.label}
-          </Link>
-        )}
+            <p className="text-accent-dark font-semibold text-sm uppercase tracking-wider mb-4">
+              {eyebrow}
+            </p>
 
-        <div className="eyebrow mb-5">{eyebrow}</div>
-        <h1 className="text-ink max-w-4xl mx-auto">{title}</h1>
+            <h1 className="text-primary">{title}</h1>
 
-        {description && (
-          <p className="mt-6 text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto">
-            {description}
-          </p>
-        )}
+            {description && (
+              <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+                {description}
+              </p>
+            )}
+          </div>
 
-        {/* Accent line */}
-        <div className="mt-10 flex justify-center">
-          <div className="h-[2px] w-16 bg-accent" />
-        </div>
-      </div>
-
-      {/* Framed image below */}
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8 mt-16">
-        <div className="relative aspect-[21/9] overflow-hidden rounded-sm">
-          <Image
-            src={image}
-            alt=""
-            fill
-            className="object-cover"
-            priority
-          />
+          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <Image
+              src={image}
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
