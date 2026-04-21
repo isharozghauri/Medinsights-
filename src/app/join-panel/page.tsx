@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Stethoscope, Heart, Users, ArrowRight, ArrowLeft, CheckCircle2, Shield, DollarSign, Clock, Globe2, Upload, ChevronRight } from 'lucide-react';
@@ -75,16 +75,34 @@ function TextField({ label, type = 'text', required, placeholder, name }: { labe
 }
 
 function FileUploadField({ label, description, name }: { label: string; description: string; name?: string }) {
+  const [fileName, setFileName] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <div>
-      <label className="block text-sm font-medium text-slate-700 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-slate-700 mb-2">{label} <span className="text-gray-400 font-normal">(optional)</span></label>
       <p className="text-xs text-slate-500 mb-3">{description}</p>
-      <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-accent transition-colors">
+      <button
+        type="button"
+        onClick={() => inputRef.current?.click()}
+        className="w-full border-2 border-dashed border-slate-300 rounded-xl p-6 text-center hover:border-accent transition-colors cursor-pointer"
+      >
         <Upload className="w-8 h-8 text-slate-400 mx-auto" />
-        <p className="mt-2 text-sm text-slate-600">Drag and drop or <span className="text-accent font-medium cursor-pointer">browse files</span></p>
+        {fileName ? (
+          <p className="mt-2 text-sm text-primary font-medium">{fileName}</p>
+        ) : (
+          <p className="mt-2 text-sm text-slate-600">Click to <span className="text-accent font-medium">browse files</span></p>
+        )}
         <p className="mt-1 text-xs text-slate-400">PDF, JPG, or PNG up to 10MB</p>
-        <input name={name || toFieldName(label)} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" />
-      </div>
+      </button>
+      <input
+        ref={inputRef}
+        name={name || toFieldName(label)}
+        type="file"
+        accept=".pdf,.jpg,.jpeg,.png"
+        className="hidden"
+        onChange={(e) => setFileName(e.target.files?.[0]?.name || '')}
+      />
     </div>
   );
 }
