@@ -35,6 +35,7 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /Medinsights-
           NEXT_PUBLIC_FORMSPREE_CONTACT: mzdyaygj
+          NEXT_PUBLIC_FORMSPREE_PANEL: mdaywnoe
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
