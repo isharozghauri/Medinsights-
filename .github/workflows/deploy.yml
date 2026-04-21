@@ -34,6 +34,7 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /Medinsights-
+          NEXT_PUBLIC_FORMSPREE_CONTACT: mzdyaygj
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
