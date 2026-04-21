@@ -46,11 +46,18 @@ const faqs = [
   { q: 'Can I opt out at any time?', a: 'Yes. You can update your preferences, pause your participation, or permanently remove your profile at any time. There are no commitments or obligations.' },
 ];
 
-function SelectField({ label, options, required, placeholder }: { label: string; options: string[]; required?: boolean; placeholder?: string }) {
+function toFieldName(label: string): string {
+  return label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
+}
+
+function SelectField({ label, options, required, placeholder, name }: { label: string; options: string[]; required?: boolean; placeholder?: string; name?: string }) {
   return (
     <div>
       <label className="block text-sm font-medium text-slate-700 mb-2">{label} {required && <span className="text-red-500">*</span>}</label>
-      <select required={required} className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 text-slate-700">
+      <select name={name || toFieldName(label)} required={required} className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 text-slate-700">
         <option value="">{placeholder || `Select ${label.toLowerCase()}`}</option>
         {options.map(o => <option key={o} value={o}>{o}</option>)}
       </select>
@@ -58,16 +65,16 @@ function SelectField({ label, options, required, placeholder }: { label: string;
   );
 }
 
-function TextField({ label, type = 'text', required, placeholder }: { label: string; type?: string; required?: boolean; placeholder?: string }) {
+function TextField({ label, type = 'text', required, placeholder, name }: { label: string; type?: string; required?: boolean; placeholder?: string; name?: string }) {
   return (
     <div>
       <label className="block text-sm font-medium text-slate-700 mb-2">{label} {required && <span className="text-red-500">*</span>}</label>
-      <input type={type} required={required} placeholder={placeholder} className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
+      <input name={name || toFieldName(label)} type={type} required={required} placeholder={placeholder} className="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20" />
     </div>
   );
 }
 
-function FileUploadField({ label, description }: { label: string; description: string }) {
+function FileUploadField({ label, description, name }: { label: string; description: string; name?: string }) {
   return (
     <div>
       <label className="block text-sm font-medium text-slate-700 mb-2">{label}</label>
@@ -76,7 +83,7 @@ function FileUploadField({ label, description }: { label: string; description: s
         <Upload className="w-8 h-8 text-slate-400 mx-auto" />
         <p className="mt-2 text-sm text-slate-600">Drag and drop or <span className="text-accent font-medium cursor-pointer">browse files</span></p>
         <p className="mt-1 text-xs text-slate-400">PDF, JPG, or PNG up to 10MB</p>
-        <input type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" />
+        <input name={name || toFieldName(label)} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" />
       </div>
     </div>
   );
@@ -86,8 +93,36 @@ export default function JoinPanelPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [panelType, setPanelType] = useState<PanelType>('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [selectedConditions, setSelectedConditions] = useState<string[]>([]);
   const [receivingTreatment, setReceivingTreatment] = useState('');
+
+  const FORMSPREE_PANEL = process.env.NEXT_PUBLIC_FORMSPREE_PANEL || '';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    if (FORMSPREE_PANEL) {
+      const formData = new FormData(e.currentTarget);
+      // Add panel type and multi-select conditions (which aren't in DOM natively)
+      formData.append('panel_type', panelType);
+      if (selectedConditions.length > 0) {
+        formData.append('conditions', selectedConditions.join(', '));
+      }
+      if (receivingTreatment) {
+        formData.append('receiving_treatment', receivingTreatment);
+      }
+      await fetch(`https://formspree.io/f/${FORMSPREE_PANEL}`, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+    }
+
+    setSubmitting(false);
+    setSubmitted(true);
+  };
 
   const toggleCondition = (condition: string) => {
     setSelectedConditions(prev => prev.includes(condition) ? prev.filter(c => c !== condition) : [...prev, condition]);
@@ -141,7 +176,7 @@ export default function JoinPanelPage() {
             ))}
           </div>
 
-          <div className="bg-white rounded-2xl p-8 lg:p-10 border border-slate-200 shadow-sm">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 lg:p-10 border border-slate-200 shadow-sm">
             {/* Step 1: Role Selection */}
             {currentStep === 1 && (
               <div>
@@ -161,7 +196,7 @@ export default function JoinPanelPage() {
                   ))}
                 </div>
                 <div className="mt-8 flex justify-end">
-                  <button onClick={() => panelType && setCurrentStep(2)} disabled={!panelType} className="btn-primary px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed">Next <ArrowRight className="w-4 h-4" /></button>
+                  <button type="button" onClick={() => panelType && setCurrentStep(2)} disabled={!panelType} className="btn-primary px-6 py-3 disabled:opacity-50 disabled:cursor-not-allowed">Next <ArrowRight className="w-4 h-4" /></button>
                 </div>
               </div>
             )}
@@ -187,8 +222,8 @@ export default function JoinPanelPage() {
                   <SelectField label="Preferred Language" options={languages} required />
                 </div>
                 <div className="mt-8 flex justify-between">
-                  <button onClick={() => setCurrentStep(1)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
-                  <button onClick={() => setCurrentStep(3)} className="btn-primary px-6 py-3">Next <ArrowRight className="w-4 h-4" /></button>
+                  <button type="button" onClick={() => setCurrentStep(1)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
+                  <button type="button" onClick={() => setCurrentStep(3)} className="btn-primary px-6 py-3">Next <ArrowRight className="w-4 h-4" /></button>
                 </div>
               </div>
             )}
@@ -276,8 +311,8 @@ export default function JoinPanelPage() {
                   )}
                 </div>
                 <div className="mt-8 flex justify-between">
-                  <button onClick={() => setCurrentStep(2)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
-                  <button onClick={() => setCurrentStep(4)} className="btn-primary px-6 py-3">Next <ArrowRight className="w-4 h-4" /></button>
+                  <button type="button" onClick={() => setCurrentStep(2)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
+                  <button type="button" onClick={() => setCurrentStep(4)} className="btn-primary px-6 py-3">Next <ArrowRight className="w-4 h-4" /></button>
                 </div>
               </div>
             )}
@@ -300,12 +335,18 @@ export default function JoinPanelPage() {
                   ))}
                 </div>
                 <div className="mt-8 flex justify-between">
-                  <button onClick={() => setCurrentStep(3)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
-                  <button onClick={() => setSubmitted(true)} className="btn-primary px-8 py-4">Submit Application <CheckCircle2 className="w-5 h-5" /></button>
+                  <button type="button" onClick={() => setCurrentStep(3)} className="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"><ArrowLeft className="w-4 h-4" /> Back</button>
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="btn-primary px-8 py-4 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {submitting ? 'Submitting...' : 'Submit Application'} <CheckCircle2 className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
             )}
-          </div>
+          </form>
         </div>
       </section>
 
