@@ -188,7 +188,7 @@ export default function JoinPanelPage() {
                     { type: 'patient' as PanelType, icon: Heart, label: 'Patient', desc: 'Currently diagnosed with a medical condition' },
                     { type: 'caregiver' as PanelType, icon: Users, label: 'Caregiver', desc: 'Caring for someone with a medical condition' },
                   ].map(role => (
-                    <button key={role.type} onClick={() => setPanelType(role.type)} className={`p-6 rounded-xl border-2 text-center transition-all ${panelType === role.type ? 'border-accent bg-accent/5' : 'border-slate-200 hover:border-slate-300'}`}>
+                    <button type="button" key={role.type} onClick={() => setPanelType(role.type)} className={`p-6 rounded-xl border-2 text-center transition-all ${panelType === role.type ? 'border-accent bg-accent/5' : 'border-slate-200 hover:border-slate-300'}`}>
                       <role.icon className={`w-10 h-10 mx-auto ${panelType === role.type ? 'text-accent' : 'text-slate-400'}`} />
                       <h3 className="mt-3 font-bold text-slate-900 text-sm">{role.label}</h3>
                       <p className="mt-1 text-xs text-slate-500">{role.desc}</p>
